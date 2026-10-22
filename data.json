@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-22T08:12:25.993095+00:00",
+  "fetchedAt": "2026-10-22T09:44:29.890283+00:00",
   "world": {
     "top": [],
     "finance": [],
@@ -183,7 +183,98 @@
         "seendate": "2026-10-01T15:00:00+00:00"
       }
     ],
-    "sports": [],
+    "sports": [
+      {
+        "title": "2028 Los Angeles – NBC 7 San Diego",
+        "url": "https://www.nbcsandiego.com/olympics/2028-los-angeles/",
+        "source": "nbcsandiego.com",
+        "seendate": "2026-08-19T21:30:00+00:00"
+      },
+      {
+        "title": "What to know about the next round of LA Olympics ticket sales – NBC Los Angeles",
+        "url": "https://www.nbclosangeles.com/olympics/2028-los-angeles/la-olympics-tickets/3932069/",
+        "source": "nbclosangeles.com",
+        "seendate": "2026-08-21T17:00:00+00:00"
+      },
+      {
+        "title": "NFL , football fandom grows in Australia as leaders branch to flag",
+        "url": "https://www.mercurynews.com/2026/09/06/nfl-australia-players-participation-49ers-rams/",
+        "source": "mercurynews.com",
+        "seendate": "2026-09-06T20:30:00+00:00"
+      },
+      {
+        "title": "NFL , football fandom grows in Australia as leaders branch to flag",
+        "url": "https://www.eastbaytimes.com/2026/09/06/nfl-australia-players-participation-49ers-rams/",
+        "source": "eastbaytimes.com",
+        "seendate": "2026-09-06T18:15:00+00:00"
+      },
+      {
+        "title": "NFL , football fandom grows in Australia as leaders branch to flag",
+        "url": "https://www.pressdemocrat.com/2026/09/06/nfl-australia-players-participation-49ers-rams/",
+        "source": "pressdemocrat.com",
+        "seendate": "2026-09-06T16:15:00+00:00"
+      },
+      {
+        "title": "Asian Games 2026 : How Is It Different From the Olympic Games ? Check All the Differences Here ! ",
+        "url": "https://www.jagranjosh.com/general-knowledge/asian-games-vs-olympic-games-how-is-it-different-check-all-the-differences-here-1820011815-1",
+        "source": "jagranjosh.com",
+        "seendate": "2026-08-30T07:15:00+00:00"
+      },
+      {
+        "title": "Preparations entering  final stages  ",
+        "url": "http://europe.chinadaily.com.cn/a/202608/19/WS6a850b51a3106bc57421c3d1.html",
+        "source": "europe.chinadaily.com.cn",
+        "seendate": "2026-08-19T02:30:00+00:00"
+      },
+      {
+        "title": "Preparations entering  final stages  ",
+        "url": "http://usa.chinadaily.com.cn/a/202608/19/WS6a850b51a3106bc57421c3d1.html",
+        "source": "usa.chinadaily.com.cn",
+        "seendate": "2026-08-19T02:45:00+00:00"
+      },
+      {
+        "title": "Athletes out for gold at Special Olympics Australia 2026 National Games",
+        "url": "https://www.abc.net.au/news/2026-10-20/special-olympics-australia-national-games-melbourne/107282812",
+        "source": "abc.net.au",
+        "seendate": "2026-10-19T20:30:00+00:00"
+      },
+      {
+        "title": "NFL , football fandom grows in Australia as leaders branch to flag",
+        "url": "https://www.times-standard.com/2026/09/06/nfl-australia-players-participation-49ers-rams/",
+        "source": "times-standard.com",
+        "seendate": "2026-09-06T17:00:00+00:00"
+      },
+      {
+        "title": "  Knocking down wall : NFL puts global event machine to test in Australian debut",
+        "url": "https://kwsn.com/2026/09/04/knocking-down-walls-nfl-puts-global-event-machine-to-test-in-australian-debut/",
+        "source": "kwsn.com",
+        "seendate": "2026-09-04T08:45:00+00:00"
+      },
+      {
+        "title": "Slippery Rock University hosts Special Olympics sectional",
+        "url": "https://www.butlereagle.com/20260927/slippery-rock-university-hosts-special-olympics-sectional/",
+        "source": "butlereagle.com",
+        "seendate": "2026-09-28T13:15:00+00:00"
+      },
+      {
+        "title": "Rosso and Lae spread wings | The National",
+        "url": "https://www.thenational.com.pg/rosso-and-lae-spread-wings/",
+        "source": "thenational.com.pg",
+        "seendate": "2026-10-01T05:00:00+00:00"
+      },
+      {
+        "title": "New records being set as China holds robot olympics",
+        "url": "https://kyma.com/news/national-world/2026/08/24/new-records-being-set-as-china-holds-robot-olympics/",
+        "source": "kyma.com",
+        "seendate": "2026-08-24T16:30:00+00:00"
+      },
+      {
+        "title": "Modified Agreement",
+        "url": "https://www.post-journal.com/news/top-stories/2026/08/modified-agreement/",
+        "source": "post-journal.com",
+        "seendate": "2026-08-21T11:00:00+00:00"
+      }
+    ],
     "entertainment": [
       {
         "title": "Mirzapur : The Movie : Dhanda Nyoliwala Bollywood debut  Do Numbari  to be the first song from the Ali Fazal and Divyenndu starrer : Bollywood News",
@@ -375,7 +466,98 @@
       ],
       "finance": [],
       "technology": [],
-      "marketing": [],
+      "marketing": [
+        {
+          "title": "How has the ad agency business changed ? ",
+          "url": "https://www.afaqs.com/afaqs-explains/how-has-the-ad-agency-business-changed-12564792",
+          "source": "afaqs.com",
+          "seendate": "2026-09-23T03:30:00+00:00"
+        },
+        {
+          "title": "Brands Focus on ROI in Festive Marketing with Creator Collaborations , ETRetail",
+          "url": "https://retail.economictimes.indiatimes.com/news/industry/festive-marketing-faces-an-roi-test-as-brands-shift-towards-creators-targeted-digital/134986203",
+          "source": "retail.economictimes.indiatimes.com",
+          "seendate": "2026-10-16T09:00:00+00:00"
+        },
+        {
+          "title": "Adgully CMO Charcha Bengaluru 2026 Set to Spotlight the Future - Ready Marketer",
+          "url": "https://aninews.in/news/business/adgullys-cmos-charcha-bengaluru-2026-set-to-spotlight-the-future-ready-marketer20260901123523/",
+          "source": "aninews.in",
+          "seendate": "2026-09-01T08:15:00+00:00"
+        },
+        {
+          "title": "How Dotline Web Media Has Helped Businesses Grow Organically and Through Paid Marketing for 22 Years",
+          "url": "https://www.newsx.com/brand-desk/how-dotline-web-media-has-helped-businesses-grow-organically-and-through-paid-marketing-for-22-years-256120/",
+          "source": "newsx.com",
+          "seendate": "2026-08-03T09:30:00+00:00"
+        },
+        {
+          "title": "ROI Spectrum Launches AI - Powered Search Technology Suite . As It Expands Its Full - Funnel Digital Growth Platform",
+          "url": "https://www.business-standard.com/content/press-releases-ani/roi-spectrum-launches-ai-powered-search-technology-suite-as-it-expands-its-full-funnel-digital-growth-platform-126082601138_1.html",
+          "source": "business-standard.com",
+          "seendate": "2026-08-26T15:00:00+00:00"
+        },
+        {
+          "title": "ROI Spectrum Launches AI - Powered Search Technology Suite . As It Expands Its Full - Funnel Digital Growth Platform",
+          "url": "https://aninews.in/news/business/roi-spectrum-launches-ai-powered-search-technology-suite-as-it-expands-its-full-funnel-digital-growth-platform20260826190036/",
+          "source": "aninews.in",
+          "seendate": "2026-08-26T14:15:00+00:00"
+        },
+        {
+          "title": "India FMCG CEO churn : Six of 10 new consumer chiefs have held marketing leadership roles",
+          "url": "https://bestmediainfo.com/mediainfo/mediainfo-marketing/indias-fmcg-ceo-churn-six-of-10-new-consumer-chiefs-have-held-marketing-leadership-roles-12253474",
+          "source": "bestmediainfo.com",
+          "seendate": "2026-08-12T11:45:00+00:00"
+        },
+        {
+          "title": "ITW Universe Highlights India - Afghanistan T20I Series as a Cricket Springboard into the Festive Season",
+          "url": "https://news.webindia123.com/news/Articles/Business/20260821/4489242.html",
+          "source": "news.webindia123.com",
+          "seendate": "2026-08-21T09:00:00+00:00"
+        },
+        {
+          "title": "AAFT BA / MA in PR and event management prepare students for careers in communications and events",
+          "url": "https://www.hindustantimes.com/education/admissions/aafts-ba-ma-in-pr-and-event-management-prepare-students-for-careers-in-communications-and-events-101787828348540.html",
+          "source": "hindustantimes.com",
+          "seendate": "2026-08-27T12:00:00+00:00"
+        },
+        {
+          "title": "In 2020 , Molly Wolchansky started The Agent Nest with $500 ; by 2024 , the real - estate marketing platform was generating an estimated $120 , 000 a year",
+          "url": "https://economictimes.indiatimes.com/world/business/in-2020-molly-wolchansky-started-the-agent-nest-with-500-by-2024-the-real-estate-marketing-platform-was-generating-an-estimated-120000-a-year/articleshow/135053083.cms",
+          "source": "economictimes.indiatimes.com",
+          "seendate": "2026-10-19T17:30:00+00:00"
+        },
+        {
+          "title": "Legacy Law Offices acts on Apar Advertisers IPO",
+          "url": "https://www.barandbench.com/dealstreet/legacylawoffices-acts-on-apar-advertisers-ipo",
+          "source": "barandbench.com",
+          "seendate": "2026-08-05T10:45:00+00:00"
+        },
+        {
+          "title": "FMCG ad spends resurge encouraged by uptick in customer sentiment",
+          "url": "https://www.thehindubusinessline.com/companies/fmcg-ad-spends-resurge-encouraged-by-uptick-in-customer-sentiment/article71297423.ece",
+          "source": "thehindubusinessline.com",
+          "seendate": "2026-08-02T16:45:00+00:00"
+        },
+        {
+          "title": "DCODE 2 . 0 : Retail media , Q - comm , and AI drive India digital ad shift",
+          "url": "https://www.afaqs.com/news/media/dcode-20-retail-media-q-comm-and-ai-drive-indias-digital-ad-shift-12551732",
+          "source": "afaqs.com",
+          "seendate": "2026-09-21T04:00:00+00:00"
+        },
+        {
+          "title": "Meta ad revenue rises 26 % YoY to $63 . 06 bn in Q3 2026",
+          "url": "https://www.afaqs.com/news/digital/metas-ad-revenue-rises-26-yoy-to-6306-bn-in-q3-2026-12705907",
+          "source": "afaqs.com",
+          "seendate": "2026-10-22T05:30:00+00:00"
+        },
+        {
+          "title": "Digital marketing company loses Rs16 . 17 lakh after social media ad account hacked",
+          "url": "https://timesofindia.indiatimes.com/city/pune/digital-marketing-company-loses-rs16-17-lakh-after-social-media-ad-account-hacked/articleshow/133776244.cms",
+          "source": "timesofindia.indiatimes.com",
+          "seendate": "2026-09-04T19:45:00+00:00"
+        }
+      ],
       "education": [
         {
           "title": "ICSE Class 10 Physical Education Syllabus for Board Exam 2026 - 27 : Download Free PDF Here",
@@ -468,7 +650,98 @@
           "seendate": "2026-08-05T05:30:00+00:00"
         }
       ],
-      "health": [],
+      "health": [
+        {
+          "title": "How PGIM India Rs 112 crore Healthcare Fund picks CDMO stocks to generate alpha",
+          "url": "https://economictimes.indiatimes.com/markets/expert-view/how-pgim-indias-rs-112-crore-healthcare-fund-picks-cdmo-stocks-to-generate-alpha/articleshow/133829716.cms",
+          "source": "economictimes.indiatimes.com",
+          "seendate": "2026-09-06T08:00:00+00:00"
+        },
+        {
+          "title": "Stop guessing why youre tired : How Galaxy Watch9 uses AI to connect sleep , fitness and recovery",
+          "url": "https://www.hindustantimes.com/technology/stop-guessing-why-you-re-tired-how-galaxy-watch9-uses-ai-to-connect-sleep-fitness-and-recovery-101790926112489.html",
+          "source": "hindustantimes.com",
+          "seendate": "2026-10-02T08:00:00+00:00"
+        },
+        {
+          "title": "MF Tracker : HDFC Pharma & Healthcare Fund tops equity MFs at 25 % in 1 year . Should investors chase the rally ? ",
+          "url": "https://economictimes.indiatimes.com/mf/analysis/mf-tracker-hdfc-pharma-healthcare-fund-tops-equity-mfs-at-25-in-1-year-should-investors-chase-the-rally/articleshow/134402281.cms",
+          "source": "economictimes.indiatimes.com",
+          "seendate": "2026-09-22T05:15:00+00:00"
+        },
+        {
+          "title": "The 30 - something brain fog : Why our grey matter is burning out decades too early",
+          "url": "https://www.livemint.com/science/health/the-30-something-brain-fog-why-our-grey-matter-is-burning-out-decades-too-early-11787823140858.html",
+          "source": "livemint.com",
+          "seendate": "2026-08-30T07:00:00+00:00"
+        },
+        {
+          "title": "Apple Watch Series 12  Health Age  takes on WHOOP health tracking",
+          "url": "https://economictimes.indiatimes.com/industry/cons-products/electronics/apple-watch-series-12s-health-age-takes-on-whoops-health-tracking/articleshow/133994844.cms",
+          "source": "economictimes.indiatimes.com",
+          "seendate": "2026-09-10T06:00:00+00:00"
+        },
+        {
+          "title": "Niva Bupa Hosts  Walk for Healthy Citie with Sania Mirza to Promote Active Lifestyles and Greener Communities",
+          "url": "https://www.hindustantimes.com/brand-stories/niva-bupa-hosts-walk-for-healthy-cities-with-sania-mirza-to-promote-active-lifestyles-and-greener-communities-101790592326340.html",
+          "source": "hindustantimes.com",
+          "seendate": "2026-09-28T11:15:00+00:00"
+        },
+        {
+          "title": "Apple Watch Series 12 , Ultra 4 Get Live Rewind Feature to Replay Last 15 Seconds of Conversations",
+          "url": "https://www.oneindia.com/technology/apple-watch-series-12-ultra-4-get-live-rewind-feature-to-replay-last-15-seconds-of-conversations-8200955.html",
+          "source": "oneindia.com",
+          "seendate": "2026-09-09T23:45:00+00:00"
+        },
+        {
+          "title": "Spot the signs : Dementia awareness drive in Bantwal",
+          "url": "https://timesofindia.indiatimes.com/city/mangaluru/spot-the-signs-dementia-awareness-drive-in-bantwal/articleshow/134624218.cms",
+          "source": "timesofindia.indiatimes.com",
+          "seendate": "2026-10-01T20:30:00+00:00"
+        },
+        {
+          "title": "  I would probably want to write a bible on pelvic floor health : Anne Hathaway ; 4 best exercises to improve it",
+          "url": "https://www.moneycontrol.com/health-and-fitness/i-would-probably-want-to-write-a-bible-on-pelvic-floor-health-anne-hathaway-4-best-exercises-to-improve-it-article-14042932.html",
+          "source": "moneycontrol.com",
+          "seendate": "2026-10-01T12:30:00+00:00"
+        },
+        {
+          "title": "Ram Charan visits Ayyappa temple at Coimbatore with wife Upasana Konidela after wrist surgery",
+          "url": "https://www.bollywoodhungama.com/news/south-cinema/ram-charan-visits-ayyappa-temple-at-coimbatore-with-wife-upasana-konidela-after-wrist-surgery/",
+          "source": "bollywoodhungama.com",
+          "seendate": "2026-07-30T22:45:00+00:00"
+        },
+        {
+          "title": "Preventive - health startups chase India booming wellness market but scaling is costly",
+          "url": "https://www.livemint.com/companies/start-ups/preventive-health-startup-are-chasing-indias-booming-health-wellness-market-11788850412075.html",
+          "source": "livemint.com",
+          "seendate": "2026-09-09T03:15:00+00:00"
+        },
+        {
+          "title": "Government hospitals must prioritise quality healthcare , says Minister U . T . Khader",
+          "url": "https://www.thehindu.com/news/national/karnataka/government-hospitals-must-prioritise-quality-healthcare-says-minister-ut-khader/article71459902.ece",
+          "source": "thehindu.com",
+          "seendate": "2026-09-12T14:15:00+00:00"
+        },
+        {
+          "title": "Why Kenya universal health reform is contentious",
+          "url": "https://scroll.in/article/1095416/why-kenyas-universal-health-reform-is-contentious",
+          "source": "scroll.in",
+          "seendate": "2026-09-11T21:15:00+00:00"
+        },
+        {
+          "title": "Why rural healthcare needs India entrepreneurs to step in",
+          "url": "https://economictimes.indiatimes.com/small-biz/entrepreneurship/why-rural-healthcare-needs-indias-entrepreneurs-to-step-in/articleshow/133642224.cms",
+          "source": "economictimes.indiatimes.com",
+          "seendate": "2026-08-31T05:45:00+00:00"
+        },
+        {
+          "title": "Apple Watch Series 12 , Watch Ultra 4 may get these two health updates",
+          "url": "https://timesofindia.indiatimes.com/technology/tech-news/apple-watch-series-12-watch-ultra-4-may-get-these-two-health-updates/articleshow/133641972.cms",
+          "source": "timesofindia.indiatimes.com",
+          "seendate": "2026-08-31T05:30:00+00:00"
+        }
+      ],
       "sports": [],
       "entertainment": []
     },
@@ -663,8 +936,190 @@
           "seendate": "2026-08-31T04:45:00+00:00"
         }
       ],
-      "sports": [],
-      "entertainment": []
+      "sports": [
+        {
+          "title": "2028 Los Angeles – NBC 7 San Diego",
+          "url": "https://www.nbcsandiego.com/olympics/2028-los-angeles/",
+          "source": "nbcsandiego.com",
+          "seendate": "2026-08-19T21:30:00+00:00"
+        },
+        {
+          "title": "What to know about the next round of LA Olympics ticket sales – NBC Los Angeles",
+          "url": "https://www.nbclosangeles.com/olympics/2028-los-angeles/la-olympics-tickets/3932069/",
+          "source": "nbclosangeles.com",
+          "seendate": "2026-08-21T17:00:00+00:00"
+        },
+        {
+          "title": "NFL , football fandom grows in Australia as leaders branch to flag",
+          "url": "https://www.mercurynews.com/2026/09/06/nfl-australia-players-participation-49ers-rams/",
+          "source": "mercurynews.com",
+          "seendate": "2026-09-06T20:30:00+00:00"
+        },
+        {
+          "title": "NFL , football fandom grows in Australia as leaders branch to flag",
+          "url": "https://www.eastbaytimes.com/2026/09/06/nfl-australia-players-participation-49ers-rams/",
+          "source": "eastbaytimes.com",
+          "seendate": "2026-09-06T18:15:00+00:00"
+        },
+        {
+          "title": "NFL , football fandom grows in Australia as leaders branch to flag",
+          "url": "https://www.pressdemocrat.com/2026/09/06/nfl-australia-players-participation-49ers-rams/",
+          "source": "pressdemocrat.com",
+          "seendate": "2026-09-06T16:15:00+00:00"
+        },
+        {
+          "title": "NFL , football fandom grows in Australia as leaders branch to flag",
+          "url": "https://www.times-standard.com/2026/09/06/nfl-australia-players-participation-49ers-rams/",
+          "source": "times-standard.com",
+          "seendate": "2026-09-06T17:00:00+00:00"
+        },
+        {
+          "title": "  Knocking down wall : NFL puts global event machine to test in Australian debut",
+          "url": "https://kwsn.com/2026/09/04/knocking-down-walls-nfl-puts-global-event-machine-to-test-in-australian-debut/",
+          "source": "kwsn.com",
+          "seendate": "2026-09-04T08:45:00+00:00"
+        },
+        {
+          "title": "Slippery Rock University hosts Special Olympics sectional",
+          "url": "https://www.butlereagle.com/20260927/slippery-rock-university-hosts-special-olympics-sectional/",
+          "source": "butlereagle.com",
+          "seendate": "2026-09-28T13:15:00+00:00"
+        },
+        {
+          "title": "New records being set as China holds robot olympics",
+          "url": "https://kyma.com/news/national-world/2026/08/24/new-records-being-set-as-china-holds-robot-olympics/",
+          "source": "kyma.com",
+          "seendate": "2026-08-24T16:30:00+00:00"
+        },
+        {
+          "title": "Modified Agreement",
+          "url": "https://www.post-journal.com/news/top-stories/2026/08/modified-agreement/",
+          "source": "post-journal.com",
+          "seendate": "2026-08-21T11:00:00+00:00"
+        },
+        {
+          "title": "High School Scoreboard , results from Thursday , Sept . 24",
+          "url": "https://www.columbian.com/news/2026/sep/24/high-school-scoreboard-results-from-thursday-sept-24/",
+          "source": "columbian.com",
+          "seendate": "2026-09-25T07:15:00+00:00"
+        },
+        {
+          "title": "The Special Olympics Missouri state outdoor games return to Springfield",
+          "url": "https://www.ky3.com/2026/10/17/special-olympics-missouri-state-outdoor-games-return-springfield/",
+          "source": "ky3.com",
+          "seendate": "2026-10-17T05:30:00+00:00"
+        },
+        {
+          "title": "The Robots Beat Usain Bolt , Then Met Their Match : Beans",
+          "url": "https://gizmodo.com/world-humanoid-robot-games-beijing-bean-counting-records-2000802290",
+          "source": "gizmodo.com",
+          "seendate": "2026-08-24T16:45:00+00:00"
+        },
+        {
+          "title": "HSOT All - State teams and Final Rankings history",
+          "url": "https://www.highschoolot.com/story/hsot-all-state-teams-and-final-rankings-history/21540674/",
+          "source": "highschoolot.com",
+          "seendate": "2026-09-08T18:45:00+00:00"
+        },
+        {
+          "title": "Are the Patriot Games Great ? No . Are They Fun to Watch ? ",
+          "url": "https://www.theatlantic.com/newsletters/2026/08/patriot-games-trump-event/688288/",
+          "source": "theatlantic.com",
+          "seendate": "2026-08-14T05:00:00+00:00"
+        }
+      ],
+      "entertainment": [
+        {
+          "title": "Tum Hi Ho MP3 Song Download : Play & Download Tum Hi Ho Song Online @ Gaana",
+          "url": "https://gaana.com/song/tumhiho",
+          "source": "gaana.com",
+          "seendate": "2026-10-19T19:15:00+00:00"
+        },
+        {
+          "title": "Mirzapur : The Movie Becomes The First Bollywood Film to Launch Its Full Album Within The Premium Subscriber - First Window",
+          "url": "http://www.bignewsnetwork.com/news/279284065/mirzapur-the-movie-becomes-the-first-bollywood-film-to-launch-its-full-album-within-the-premium-subscriber-first-window",
+          "source": "bignewsnetwork.com",
+          "seendate": "2026-09-03T16:15:00+00:00"
+        },
+        {
+          "title": "  Mirzapur : The Movie  unveils first song  Do Numbari  ",
+          "url": "http://www.bignewsnetwork.com/news/279222150/mirzapur-the-movie-unveils-first-song-do-numbari",
+          "source": "bignewsnetwork.com",
+          "seendate": "2026-08-04T14:00:00+00:00"
+        },
+        {
+          "title": "The epic La Tomatina food fight drew foreigners to paint a small Spanish town red",
+          "url": "https://www.aol.com/articles/epic-la-tomatina-food-fight-083720000.html",
+          "source": "aol.com",
+          "seendate": "2026-08-26T16:15:00+00:00"
+        },
+        {
+          "title": "Awarapan 2 Review : Emraan Hashmi , Memory Rewired , Interpol - Backed Crime Plot",
+          "url": "https://www.techtimes.com/articles/324421/20260814/awarapan-2-review-emraan-hashmi-memory-rewired-interpol-backed-crime-plot.htm",
+          "source": "techtimes.com",
+          "seendate": "2026-08-14T15:15:00+00:00"
+        },
+        {
+          "title": "Reel FX Original  Diya  Finds A Home At Paramount Animation",
+          "url": "https://www.cartoonbrew.com/feature-film/reel-fx-diya-finds-paramount-animation-265281.html",
+          "source": "cartoonbrew.com",
+          "seendate": "2026-08-06T18:00:00+00:00"
+        },
+        {
+          "title": "Painting the town red : Thousands participate in giant food fight",
+          "url": "https://www.wgal.com/article/thousands-la-tomatina-food-fight-paint-town-red-spain-fun/73535462",
+          "source": "wgal.com",
+          "seendate": "2026-08-26T21:15:00+00:00"
+        },
+        {
+          "title": "Bahrain News : Bollywood studios plan gaining fresh momentum",
+          "url": "https://www.gdnonline.com:443/Details/1402320/Bollywood-studios-plan-gaining-fresh-momentum",
+          "source": "gdnonline.com",
+          "seendate": "2026-08-02T23:45:00+00:00"
+        },
+        {
+          "title": "Ritesh Sidhwani , Farhan Akhtar Excel Entertainment launches Excel Music",
+          "url": "http://www.bignewsnetwork.com/news/279221067/ritesh-sidhwani-farhan-akhtar-excel-entertainment-launches-excel-music",
+          "source": "bignewsnetwork.com",
+          "seendate": "2026-08-03T18:00:00+00:00"
+        },
+        {
+          "title": "Yash  Toxic  Gets a Sonic Fairy Tale From Composer Vishal Mishra",
+          "url": "https://variety.com/2026/artisans/news/yash-toxic-vishal-mishra-composer-1236833676/",
+          "source": "variety.com",
+          "seendate": "2026-08-13T18:30:00+00:00"
+        },
+        {
+          "title": "The epic La Tomatina food fight drew foreigners to paint a small Spanish town red",
+          "url": "https://www.sandiegouniontribune.com/2026/08/26/spain-la-tomatina/",
+          "source": "sandiegouniontribune.com",
+          "seendate": "2026-08-26T18:30:00+00:00"
+        },
+        {
+          "title": "The epic La Tomatina food fight drew foreigners to paint a small Spanish town red",
+          "url": "https://www.bostonherald.com/2026/08/26/spain-la-tomatina/",
+          "source": "bostonherald.com",
+          "seendate": "2026-08-26T18:30:00+00:00"
+        },
+        {
+          "title": "Bahrain News : Bahrain Philharmonic Orchestra celebrates  Cinema and TV in Concert  at Bahrain National Theatre",
+          "url": "https://www.gdnonline.com:443/Details/1406168",
+          "source": "gdnonline.com",
+          "seendate": "2026-09-12T08:00:00+00:00"
+        },
+        {
+          "title": "Column :  Best of the Best  is a poor excuse for representation – The Daily Tar Heel",
+          "url": "https://dailytarheel.com/486543/opinion/opinion-column-best-of-the-best-bollywood/",
+          "source": "dailytarheel.com",
+          "seendate": "2026-10-20T23:30:00+00:00"
+        },
+        {
+          "title": "Sci - Fi Franchise  Kri8 Universe  Launches at Toronto Market",
+          "url": "https://variety.com/2026/film/markets-festivals/sci-fi-franchise-kri8-universe-toronto-market-1236858647/",
+          "source": "variety.com",
+          "seendate": "2026-09-12T14:30:00+00:00"
+        }
+      ]
     },
     "UK": {
       "name": "UK",
@@ -1048,10 +1503,192 @@
       ],
       "finance": [],
       "technology": [],
-      "marketing": [],
+      "marketing": [
+        {
+          "title": "Medaro Mining Announces Digital Marketing Services Extension Agreement",
+          "url": "https://www.thewhig.com/press-releases/newsfile/medaro-mining-announces-digital-marketing-services-extension-agreement/",
+          "source": "thewhig.com",
+          "seendate": "2026-09-05T01:15:00+00:00"
+        },
+        {
+          "title": "StackAdapt 2027 Programmatic Advertising Report Finds Top Performers Are Twice as Likely to Expand Their Channel Mix",
+          "url": "https://www.thewhig.com/press-releases/business-wire/stackadapts-2027-programmatic-advertising-report-finds-top-performers-are-twice-as-likely-to-expand-their-channel-mix/",
+          "source": "thewhig.com",
+          "seendate": "2026-10-19T16:15:00+00:00"
+        },
+        {
+          "title": "Conavi Medical Announces Media and Digital Marketing Agreements",
+          "url": "https://montrealgazette.com/press-releases/globe-newswire/conavi-medical-announces-media-and-digital-marketing-agreements/",
+          "source": "montrealgazette.com",
+          "seendate": "2026-09-05T00:15:00+00:00"
+        },
+        {
+          "title": "Conavi Medical Announces Media and Digital Marketing Agreements",
+          "url": "https://thestarphoenix.com/press-releases/globe-newswire/conavi-medical-announces-media-and-digital-marketing-agreements/",
+          "source": "thestarphoenix.com",
+          "seendate": "2026-09-05T01:00:00+00:00"
+        },
+        {
+          "title": "Conavi Medical Announces Media and Digital Marketing Agreements",
+          "url": "https://www.thewhig.com/press-releases/globe-newswire/conavi-medical-announces-media-and-digital-marketing-agreements/",
+          "source": "thewhig.com",
+          "seendate": "2026-09-05T01:15:00+00:00"
+        },
+        {
+          "title": "CNE to review use of AI images after debate over vendor posters",
+          "url": "https://www.stcatharinesstandard.ca/news/ontario/ai-slop-or-the-real-deal-cne-to-review-use-of-ai-generated-images-in-wake-of-debate-over-vendors-promotional-posters/article_a8f54624-f9a2-57cc-845a-558dad9bf3c2.html",
+          "source": "stcatharinesstandard.ca",
+          "seendate": "2026-08-30T19:45:00+00:00"
+        },
+        {
+          "title": "Press Release",
+          "url": "https://www.mining.com/press-release?id=6ad697c7e4a6d85b810c8e81",
+          "source": "mining.com",
+          "seendate": "2026-10-20T03:15:00+00:00"
+        },
+        {
+          "title": "5 Best Creative Marketing Agencies in Montreal",
+          "url": "https://mtltimes.ca/business/best-creative-marketing-agencies-in-montreal/",
+          "source": "mtltimes.ca",
+          "seendate": "2026-08-31T18:15:00+00:00"
+        },
+        {
+          "title": "DraftKings reportedly using AI to target losing bettors with ads",
+          "url": "https://mobilesyrup.com/2026/10/01/draftkings-is-using-ai-to-target-losing-bettors-with-ads/",
+          "source": "mobilesyrup.com",
+          "seendate": "2026-10-01T19:45:00+00:00"
+        },
+        {
+          "title": "Addiction experts say recent flood of gambling ads a problem for some Albertans",
+          "url": "https://globalnews.ca/news/12012277/online-gambling-igaming-addiction-concerns-advertising/",
+          "source": "globalnews.ca",
+          "seendate": "2026-08-06T23:15:00+00:00"
+        },
+        {
+          "title": "Advertising",
+          "url": "https://www.intelligencer.ca/advertising/",
+          "source": "intelligencer.ca",
+          "seendate": "2026-08-29T08:45:00+00:00"
+        },
+        {
+          "title": "Papa Giuseppe unique marketing draws in customers",
+          "url": "https://www.cp24.com/news/canada/2026/08/08/you-got-giusepped-this-edmonton-pizzeria-is-reeling-in-customers-with-social-media-bait-and-switch-marketing/",
+          "source": "cp24.com",
+          "seendate": "2026-08-08T14:15:00+00:00"
+        },
+        {
+          "title": "Picsart Launches Marketing Studio to Help Businesses Create , Test and Run Google Ads",
+          "url": "https://www.chathamdailynews.ca/press-releases/business-wire/picsart-launches-marketing-studio-to-help-businesses-create-test-and-run-google-ads/",
+          "source": "chathamdailynews.ca",
+          "seendate": "2026-10-21T14:45:00+00:00"
+        },
+        {
+          "title": "AI  slop  is dominating menus , as some restaurant owners turn to it to save time and money",
+          "url": "https://www.cbc.ca/news/business/ai-generated-restaurant-images-9.7356958",
+          "source": "cbc.ca",
+          "seendate": "2026-09-25T08:45:00+00:00"
+        },
+        {
+          "title": "KERV . ai Expands Global Partnership with LG Ad Solutions , Bringing Interactive CTV Experiences to New International Markets",
+          "url": "https://leaderpost.com/press-releases/business-wire/kerv-ai-expands-global-partnership-with-lg-ad-solutions-bringing-interactive-ctv-experiences-to-new-international-markets/",
+          "source": "leaderpost.com",
+          "seendate": "2026-08-25T14:45:00+00:00"
+        }
+      ],
       "education": [],
       "health": [],
-      "sports": [],
+      "sports": [
+        {
+          "title": "Virat Kohli , Abhinav Bindra , Bajrang Punia extend Independence Day wishes",
+          "url": "http://www.torontotelegraph.com/news/279243453/virat-kohli-abhinav-bindra-bajrang-punia-extend-independence-day-wishes",
+          "source": "torontotelegraph.com",
+          "seendate": "2026-08-15T10:30:00+00:00"
+        },
+        {
+          "title": "SUNshine Girl Becky | Toronto Sun",
+          "url": "https://torontosun.com/sunshine-girl/sunshine-girl-becky-3",
+          "source": "torontosun.com",
+          "seendate": "2026-08-25T06:30:00+00:00"
+        },
+        {
+          "title": "IN PHOTOS | Ontario Summer Games in full swing in Waterloo region",
+          "url": "https://www.cbc.ca/news/canada/kitchener-waterloo/ontario-summer-games-competition-photos-waterloo-region-guelph-9.7292321",
+          "source": "cbc.ca",
+          "seendate": "2026-07-31T22:00:00+00:00"
+        },
+        {
+          "title": "Less Screen Time , More Green Time Campaign In The Pas",
+          "url": "https://thepasonline.com/news/929560",
+          "source": "thepasonline.com",
+          "seendate": "2026-08-26T12:45:00+00:00"
+        },
+        {
+          "title": "Brampton names 6 soccer fields after World Cup contingent",
+          "url": "https://www.bramptonguardian.com/news/larin-brampton-key-to-the-city/article_67b0b41d-5253-5fb7-aa61-e20d2f30df1f.html",
+          "source": "bramptonguardian.com",
+          "seendate": "2026-09-29T22:00:00+00:00"
+        },
+        {
+          "title": "Surrey mayoral hopeful eyes waterfront district , stadium , Commonwealth Games bid | Daily Hive",
+          "url": "https://dailyhive.com/vancouver/imagine-surrey-mike-starchuk-stadium-commonwealth-games-bid",
+          "source": "dailyhive.com",
+          "seendate": "2026-09-28T06:00:00+00:00"
+        },
+        {
+          "title": "Chinese humanoid robots smash human records in 100m sprint and high jump at Beijing robot games",
+          "url": "https://www.niagarafallsreview.ca/business/chinese-humanoid-robots-smash-human-records-in-100m-sprint-and-high-jump-at-beijing-robot-games/article_2346d012-35e0-5128-ac33-06e321d363c1.html",
+          "source": "niagarafallsreview.ca",
+          "seendate": "2026-08-22T17:30:00+00:00"
+        },
+        {
+          "title": "Prime Minister Carney says he has no confidence in FIFA president Infantino",
+          "url": "https://panow.com/2026/08/05/prime-minister-carney-says-he-has-no-confidence-in-fifa-president-infantino-2/",
+          "source": "panow.com",
+          "seendate": "2026-08-05T23:15:00+00:00"
+        },
+        {
+          "title": "European nations vow to boycott World Cup , other FIFA tournaments over Infantino private equity plan – Winnipeg Free Press",
+          "url": "https://www.winnipegfreepress.com/breakingnews/2026/07/30/opposition-to-fifas-world-cup-private-equity-plan-grows-as-asia-warns-of-risks-and-europeans-meet",
+          "source": "winnipegfreepress.com",
+          "seendate": "2026-07-30T20:00:00+00:00"
+        },
+        {
+          "title": "A winning combo : Athletes , volunteers make Special Olympics  shine  ",
+          "url": "https://www.cbc.ca/news/canada/calgary/a-winning-combo-athletes-volunteers-make-special-olympics-shine-9.7304973",
+          "source": "cbc.ca",
+          "seendate": "2026-08-12T22:15:00+00:00"
+        },
+        {
+          "title": "Here when Science World giant FIFA soccer ball is coming down in Vancouver | Daily Hive",
+          "url": "https://dailyhive.com/vancouver/science-world-vancouver-fifa-world-cup-beautiful-dome",
+          "source": "dailyhive.com",
+          "seendate": "2026-09-04T22:15:00+00:00"
+        },
+        {
+          "title": "Fraser Valley athletes head to 2026 Special Olympics Canada Summer Games",
+          "url": "https://abbynews.com/2026/08/11/fraser-valley-athletes-head-to-2026-special-olympics-canada-summer-games/",
+          "source": "abbynews.com",
+          "seendate": "2026-08-11T21:00:00+00:00"
+        },
+        {
+          "title": "LED lights improvements approved for Beban Park CHLY 101 . 7FM : Listener Supported in Nanaimo BC . ",
+          "url": "https://www.chly.ca/local-news/2026/07/30/led-lights-improvements-approved-for-beban-park",
+          "source": "chly.ca",
+          "seendate": "2026-07-31T05:45:00+00:00"
+        },
+        {
+          "title": "Dayna Spiring named 1st president of Winnipeg Northern Super League soccer club",
+          "url": "https://www.cbc.ca/news/canada/manitoba/northern-super-league-club-president-dayna-spiring-9.7353450",
+          "source": "cbc.ca",
+          "seendate": "2026-09-22T18:15:00+00:00"
+        },
+        {
+          "title": "Chinese robot dogs are on sale in Canada for about $6 , 000",
+          "url": "https://nationalpost.com/shopping-essentials/tech/robot-dogs-here-cheap-purpose-undecided",
+          "source": "nationalpost.com",
+          "seendate": "2026-08-26T11:15:00+00:00"
+        }
+      ],
       "entertainment": []
     },
     "AU": {
@@ -1073,7 +1710,98 @@
       "finance": [],
       "technology": [],
       "marketing": [],
-      "education": [],
+      "education": [
+        {
+          "title": "Why Vijay first Tamil Nadu budget Is grabbing eyeballs ? ",
+          "url": "https://arynews.tv/why-vijays-first-tamil-nadu-budget-is-grabbing-eyeballs",
+          "source": "arynews.tv",
+          "seendate": "2026-08-08T12:15:00+00:00"
+        },
+        {
+          "title": "Prince Philip school report reveals anger struggles",
+          "url": "https://arynews.tv/prince-philips-school-report-reveals-anger-struggles",
+          "source": "arynews.tv",
+          "seendate": "2026-08-03T11:00:00+00:00"
+        },
+        {
+          "title": "Nawaz Sharif Eminence Schools Aim to Revive Education",
+          "url": "https://www.pakistantoday.com.pk/2026/08/04/reviving-education-through-nawaz-sharif-eminence-schools",
+          "source": "pakistantoday.com.pk",
+          "seendate": "2026-08-03T23:15:00+00:00"
+        },
+        {
+          "title": "Aitchison College under Parent Scrutiny over  Rigged  Prefect Selections",
+          "url": "https://en.dailypakistan.com.pk/29-Aug-2026/aitchison-college-under-parents-scrutiny-over-rigged-prefect-selections",
+          "source": "en.dailypakistan.com.pk",
+          "seendate": "2026-08-29T13:45:00+00:00"
+        },
+        {
+          "title": "When AI commits suicide or kills us all ! ",
+          "url": "https://tribune.com.pk/story/2621575/when-ai-commits-suicide-or-kills-us-all",
+          "source": "tribune.com.pk",
+          "seendate": "2026-08-02T08:15:00+00:00"
+        },
+        {
+          "title": "Beaconhouse , Habib Public triumph at swimming championship",
+          "url": "https://tribune.com.pk/story/2635725/beaconhouse-habib-public-triumph-at-swimming-championship",
+          "source": "tribune.com.pk",
+          "seendate": "2026-10-19T17:30:00+00:00"
+        },
+        {
+          "title": "Parents at Prince Archie and Lilibet school receive new warnings",
+          "url": "https://www.thenews.com.pk/latest/1417382-parents-at-prince-archie-and-lilibets-school-receive-new-warnings",
+          "source": "thenews.com.pk",
+          "seendate": "2026-09-24T05:00:00+00:00"
+        },
+        {
+          "title": "Our education system needs more than a new syllabus",
+          "url": "https://tribune.com.pk/story/2623347/our-education-system-needs-more-than-a-new-syllabus",
+          "source": "tribune.com.pk",
+          "seendate": "2026-08-12T06:45:00+00:00"
+        },
+        {
+          "title": "UAE school calendar 2026 - 27 : Dates and holidays",
+          "url": "https://arynews.tv/uae-school-calendar-2026-27-dates-and-holidays",
+          "source": "arynews.tv",
+          "seendate": "2026-08-12T08:30:00+00:00"
+        },
+        {
+          "title": "Ayub Medical College closes after student clash",
+          "url": "https://tribune.com.pk/story/2628684/ayub-medical-college-closes-after-student-clash-1",
+          "source": "tribune.com.pk",
+          "seendate": "2026-09-11T04:00:00+00:00"
+        },
+        {
+          "title": "HMD Launches a Distraction - Free 4G Phone for Students",
+          "url": "https://propakistani.pk/2026/08/29/hmd-launches-a-distraction-free-4g-phone-for-students/",
+          "source": "propakistani.pk",
+          "seendate": "2026-08-29T13:45:00+00:00"
+        },
+        {
+          "title": "When friendship finds its rhythm",
+          "url": "https://tribune.com.pk/story/2621276/when-friendship-finds-its-rhythm",
+          "source": "tribune.com.pk",
+          "seendate": "2026-07-31T02:15:00+00:00"
+        },
+        {
+          "title": "King Charles received the most unusual gift that was 800 years old",
+          "url": "https://www.geo.tv/latest/676166-king-charles-received-the-most-unusual-gift-that-was-800-years-old",
+          "source": "geo.tv",
+          "seendate": "2026-08-05T03:15:00+00:00"
+        },
+        {
+          "title": "KU left in limbo as VC heads abroad",
+          "url": "https://tribune.com.pk/story/2632368/ku-left-in-limbo-as-vc-heads-abroad",
+          "source": "tribune.com.pk",
+          "seendate": "2026-10-01T07:00:00+00:00"
+        },
+        {
+          "title": "Five crushed as school wall comes tumbling down",
+          "url": "https://tribune.com.pk/story/2628816/five-crushed-as-school-wall-comes-tumbling-down",
+          "source": "tribune.com.pk",
+          "seendate": "2026-09-11T23:00:00+00:00"
+        }
+      ],
       "health": [],
       "sports": [],
       "entertainment": []
@@ -1085,55 +1813,55 @@
       "finance": "rate_limited_after_retry",
       "technology": "empty",
       "marketing": "rate_limited_after_retry",
-      "education": "success",
-      "health": "excluded_non_english_titles",
-      "sports": "rate_limited_after_retry",
-      "entertainment": "success"
+      "education": "rate_limited_after_retry; retained_previous_records",
+      "health": "rate_limited_after_retry; retained_previous_records",
+      "sports": "success",
+      "entertainment": "rate_limited_after_retry; retained_previous_records"
     },
     "IN": {
-      "top": "success",
+      "top": "rate_limited_after_retry; retained_previous_records",
       "finance": "rate_limited_after_retry",
-      "technology": "empty",
-      "marketing": "rate_limited_after_retry",
-      "education": "success",
-      "health": "rate_limited_after_retry",
+      "technology": "rate_limited_after_retry",
+      "marketing": "success",
+      "education": "rate_limited_after_retry; retained_previous_records",
+      "health": "success",
       "sports": "rate_limited_after_retry",
       "entertainment": "rate_limited_after_retry"
     },
     "US": {
       "top": "rate_limited_after_retry",
       "finance": "rate_limited_after_retry",
-      "technology": "empty",
-      "marketing": "success",
+      "technology": "rate_limited_after_retry",
+      "marketing": "rate_limited_after_retry; retained_previous_records",
       "education": "rate_limited_after_retry",
       "health": "success",
-      "sports": "rate_limited_after_retry",
-      "entertainment": "rate_limited_after_retry"
+      "sports": "success",
+      "entertainment": "success"
     },
     "UK": {
-      "top": "success",
-      "finance": "empty",
+      "top": "rate_limited_after_retry; retained_previous_records",
+      "finance": "rate_limited_after_retry",
       "technology": "rate_limited_after_retry",
       "marketing": "rate_limited_after_retry",
       "education": "rate_limited_after_retry",
-      "health": "success",
+      "health": "rate_limited_after_retry; retained_previous_records",
       "sports": "success",
       "entertainment": "rate_limited_after_retry"
     },
     "CA": {
       "top": "success",
-      "finance": "rate_limited_after_retry",
+      "finance": "empty",
       "technology": "empty",
-      "marketing": "rate_limited_after_retry",
+      "marketing": "success",
       "education": "rate_limited_after_retry",
       "health": "rate_limited_after_retry",
-      "sports": "rate_limited_after_retry",
+      "sports": "success",
       "entertainment": "rate_limited_after_retry"
     },
     "AU": {
-      "top": "skipped_country_code_mismatch",
-      "finance": "skipped_country_code_mismatch",
-      "technology": "skipped_country_code_mismatch",
+      "top": "rate_limited_after_retry",
+      "finance": "rate_limited_after_retry",
+      "technology": "empty",
       "marketing": "skipped_country_code_mismatch",
       "education": "skipped_country_code_mismatch",
       "health": "skipped_country_code_mismatch",
@@ -1143,9 +1871,9 @@
     "PK": {
       "top": "rate_limited_after_retry",
       "finance": "rate_limited_after_retry",
-      "technology": "rate_limited_after_retry",
+      "technology": "empty",
       "marketing": "rate_limited_after_retry",
-      "education": "rate_limited_after_retry",
+      "education": "success",
       "health": "rate_limited_after_retry",
       "sports": "rate_limited_after_retry",
       "entertainment": "rate_limited_after_retry"
@@ -1155,213 +1883,224 @@
     "world": {
       "top": {
         "query": "sourcelang:English",
-        "attemptedAt": "2026-10-22T07:09:39.527552+00:00"
+        "attemptedAt": "2026-10-22T08:41:05.257214+00:00"
       },
       "finance": {
         "query": "theme:ECONOMY sourcelang:English",
-        "attemptedAt": "2026-10-22T07:11:10.909801+00:00"
+        "attemptedAt": "2026-10-22T08:41:22.619197+00:00"
       },
       "technology": {
         "query": "theme:TECH sourcelang:English",
-        "attemptedAt": "2026-10-22T07:12:39.078563+00:00"
+        "attemptedAt": "2026-10-22T08:42:46.237055+00:00"
       },
       "marketing": {
         "query": "(marketing OR advertising) sourcelang:English",
-        "attemptedAt": "2026-10-22T07:12:52.940534+00:00"
+        "attemptedAt": "2026-10-22T08:43:08.600687+00:00"
       },
       "education": {
         "query": "theme:EDUCATION sourcelang:English",
-        "attemptedAt": "2026-10-22T07:14:17.497620+00:00"
+        "attemptedAt": "2026-10-22T08:44:32.653714+00:00"
       },
       "health": {
         "query": "theme:MEDICAL sourcelang:English",
-        "attemptedAt": "2026-10-22T07:14:33.649393+00:00"
+        "attemptedAt": "2026-10-22T08:45:57.826420+00:00"
       },
       "sports": {
         "query": "(cricket OR football OR soccer OR tennis OR olympics) sourcelang:English",
-        "attemptedAt": "2026-10-22T07:16:05.801278+00:00"
+        "attemptedAt": "2026-10-22T08:47:25.086715+00:00"
       },
       "entertainment": {
         "query": "(film OR movie OR music OR bollywood) sourcelang:English",
-        "attemptedAt": "2026-10-22T07:17:36.146900+00:00"
+        "attemptedAt": "2026-10-22T08:47:38.041205+00:00"
       }
     },
     "IN": {
       "top": {
         "query": "sourcecountry:IN sourcelang:English",
-        "attemptedAt": "2026-10-22T07:19:07.377922+00:00"
+        "attemptedAt": "2026-10-22T08:49:01.413316+00:00"
       },
       "finance": {
         "query": "theme:ECONOMY sourcecountry:IN sourcelang:English",
-        "attemptedAt": "2026-10-22T07:20:43.577269+00:00"
+        "attemptedAt": "2026-10-22T08:50:29.684029+00:00"
       },
       "technology": {
         "query": "theme:TECH sourcecountry:IN sourcelang:English",
-        "attemptedAt": "2026-10-22T07:22:12.679882+00:00"
+        "attemptedAt": "2026-10-22T08:51:54.276306+00:00"
       },
       "marketing": {
         "query": "(marketing OR advertising) sourcecountry:IN sourcelang:English",
-        "attemptedAt": "2026-10-22T07:23:39.385241+00:00"
+        "attemptedAt": "2026-10-22T08:53:17.830353+00:00"
       },
       "education": {
         "query": "theme:EDUCATION sourcecountry:IN sourcelang:English",
-        "attemptedAt": "2026-10-22T07:25:05.591179+00:00"
+        "attemptedAt": "2026-10-22T08:54:48.067873+00:00"
       },
       "health": {
         "query": "theme:MEDICAL sourcecountry:IN sourcelang:English",
-        "attemptedAt": "2026-10-22T07:26:41.143882+00:00"
+        "attemptedAt": "2026-10-22T08:56:12.352756+00:00"
       },
       "sports": {
         "query": "(cricket OR football OR soccer OR tennis OR olympics) sourcecountry:IN sourcelang:English",
-        "attemptedAt": "2026-10-22T07:28:07.872046+00:00"
+        "attemptedAt": "2026-10-22T08:57:43.545091+00:00"
       },
       "entertainment": {
         "query": "(film OR movie OR music OR bollywood) sourcecountry:IN sourcelang:English",
-        "attemptedAt": "2026-10-22T07:29:31.330055+00:00"
+        "attemptedAt": "2026-10-22T08:59:07.598697+00:00"
       }
     },
     "US": {
       "top": {
         "query": "sourcecountry:US sourcelang:English",
-        "attemptedAt": "2026-10-22T07:31:01.131096+00:00"
+        "attemptedAt": "2026-10-22T09:00:35.134806+00:00"
       },
       "finance": {
         "query": "theme:ECONOMY sourcecountry:US sourcelang:English",
-        "attemptedAt": "2026-10-22T07:32:35.701088+00:00"
+        "attemptedAt": "2026-10-22T09:02:12.442532+00:00"
       },
       "technology": {
         "query": "theme:TECH sourcecountry:US sourcelang:English",
-        "attemptedAt": "2026-10-22T07:34:06.043479+00:00"
+        "attemptedAt": "2026-10-22T09:03:47.979906+00:00"
       },
       "marketing": {
         "query": "(marketing OR advertising) sourcecountry:US sourcelang:English",
-        "attemptedAt": "2026-10-22T07:34:21.810748+00:00"
+        "attemptedAt": "2026-10-22T09:05:18.905920+00:00"
       },
       "education": {
         "query": "theme:EDUCATION sourcecountry:US sourcelang:English",
-        "attemptedAt": "2026-10-22T07:34:37.464185+00:00"
+        "attemptedAt": "2026-10-22T09:06:48.188945+00:00"
       },
       "health": {
         "query": "theme:MEDICAL sourcecountry:US sourcelang:English",
-        "attemptedAt": "2026-10-22T07:36:04.873875+00:00"
+        "attemptedAt": "2026-10-22T09:08:13.898683+00:00"
       },
       "sports": {
         "query": "(cricket OR football OR soccer OR tennis OR olympics) sourcecountry:US sourcelang:English",
-        "attemptedAt": "2026-10-22T07:37:30.112241+00:00"
+        "attemptedAt": "2026-10-22T09:09:40.373215+00:00"
       },
       "entertainment": {
         "query": "(film OR movie OR music OR bollywood) sourcecountry:US sourcelang:English",
-        "attemptedAt": "2026-10-22T07:38:54.955471+00:00"
+        "attemptedAt": "2026-10-22T09:11:12.566601+00:00"
       }
     },
     "UK": {
       "top": {
         "query": "sourcecountry:UK sourcelang:English",
-        "attemptedAt": "2026-10-22T07:40:22.688667+00:00"
+        "attemptedAt": "2026-10-22T09:12:41.776028+00:00"
       },
       "finance": {
         "query": "theme:ECONOMY sourcecountry:UK sourcelang:English",
-        "attemptedAt": "2026-10-22T07:40:40.547438+00:00"
+        "attemptedAt": "2026-10-22T09:14:09.244216+00:00"
       },
       "technology": {
         "query": "theme:TECH sourcecountry:UK sourcelang:English",
-        "attemptedAt": "2026-10-22T07:40:58.906632+00:00"
+        "attemptedAt": "2026-10-22T09:15:34.615976+00:00"
       },
       "marketing": {
         "query": "(marketing OR advertising) sourcecountry:UK sourcelang:English",
-        "attemptedAt": "2026-10-22T07:42:30.058486+00:00"
+        "attemptedAt": "2026-10-22T09:17:04.354499+00:00"
       },
       "education": {
         "query": "theme:EDUCATION sourcecountry:UK sourcelang:English",
-        "attemptedAt": "2026-10-22T07:43:54.181559+00:00"
+        "attemptedAt": "2026-10-22T09:18:31.884836+00:00"
       },
       "health": {
         "query": "theme:MEDICAL sourcecountry:UK sourcelang:English",
-        "attemptedAt": "2026-10-22T07:45:22.189629+00:00"
+        "attemptedAt": "2026-10-22T09:19:57.359859+00:00"
       },
       "sports": {
         "query": "(cricket OR football OR soccer OR tennis OR olympics) sourcecountry:UK sourcelang:English",
-        "attemptedAt": "2026-10-22T07:45:38.709977+00:00"
+        "attemptedAt": "2026-10-22T09:21:23.920862+00:00"
       },
       "entertainment": {
         "query": "(film OR movie OR music OR bollywood) sourcecountry:UK sourcelang:English",
-        "attemptedAt": "2026-10-22T07:47:07.270207+00:00"
+        "attemptedAt": "2026-10-22T09:21:47.936936+00:00"
       }
     },
     "CA": {
       "top": {
         "query": "sourcecountry:CA sourcelang:English",
-        "attemptedAt": "2026-10-22T07:48:31.687950+00:00"
+        "attemptedAt": "2026-10-22T09:23:12.400147+00:00"
       },
       "finance": {
         "query": "theme:ECONOMY sourcecountry:CA sourcelang:English",
-        "attemptedAt": "2026-10-22T07:50:00.320781+00:00"
+        "attemptedAt": "2026-10-22T09:23:30.764319+00:00"
       },
       "technology": {
         "query": "theme:TECH sourcecountry:CA sourcelang:English",
-        "attemptedAt": "2026-10-22T07:51:23.718442+00:00"
+        "attemptedAt": "2026-10-22T09:25:09.795873+00:00"
       },
       "marketing": {
         "query": "(marketing OR advertising) sourcecountry:CA sourcelang:English",
-        "attemptedAt": "2026-10-22T07:51:38.480434+00:00"
+        "attemptedAt": "2026-10-22T09:25:24.847881+00:00"
       },
       "education": {
         "query": "theme:EDUCATION sourcecountry:CA sourcelang:English",
-        "attemptedAt": "2026-10-22T07:53:04.506585+00:00"
+        "attemptedAt": "2026-10-22T09:27:00.645021+00:00"
       },
       "health": {
         "query": "theme:MEDICAL sourcecountry:CA sourcelang:English",
-        "attemptedAt": "2026-10-22T07:54:28.599461+00:00"
+        "attemptedAt": "2026-10-22T09:28:24.061636+00:00"
       },
       "sports": {
         "query": "(cricket OR football OR soccer OR tennis OR olympics) sourcecountry:CA sourcelang:English",
-        "attemptedAt": "2026-10-22T07:55:53.376813+00:00"
+        "attemptedAt": "2026-10-22T09:29:46.685282+00:00"
       },
       "entertainment": {
         "query": "(film OR movie OR music OR bollywood) sourcecountry:CA sourcelang:English",
-        "attemptedAt": "2026-10-22T07:57:18.356515+00:00"
+        "attemptedAt": "2026-10-22T09:30:11.541310+00:00"
       }
     },
     "AU": {
       "top": {
         "query": "sourcecountry:AU sourcelang:English",
-        "attemptedAt": "2026-10-22T07:58:42.111309+00:00"
+        "attemptedAt": "2026-10-22T09:31:47.060744+00:00"
+      },
+      "finance": {
+        "query": "theme:ECONOMY sourcecountry:AU sourcelang:English",
+        "attemptedAt": "2026-10-22T09:33:20.503705+00:00"
+      },
+      "technology": {
+        "query": "theme:TECH sourcecountry:AU sourcelang:English",
+        "attemptedAt": "2026-10-22T09:34:48.489014+00:00"
+      },
+      "marketing": {
+        "query": "(marketing OR advertising) sourcecountry:AU sourcelang:English",
+        "attemptedAt": "2026-10-22T09:35:04.361968+00:00"
       }
     },
     "PK": {
       "top": {
         "query": "sourcecountry:PK sourcelang:English",
-        "attemptedAt": "2026-10-22T08:00:10.137486+00:00"
+        "attemptedAt": "2026-10-22T09:35:22.638684+00:00"
       },
       "finance": {
         "query": "theme:ECONOMY sourcecountry:PK sourcelang:English",
-        "attemptedAt": "2026-10-22T08:02:00.164592+00:00"
+        "attemptedAt": "2026-10-22T09:36:47.537467+00:00"
       },
       "technology": {
         "query": "theme:TECH sourcecountry:PK sourcelang:English",
-        "attemptedAt": "2026-10-22T08:03:42.363282+00:00"
+        "attemptedAt": "2026-10-22T09:38:13.070524+00:00"
       },
       "marketing": {
         "query": "(marketing OR advertising) sourcecountry:PK sourcelang:English",
-        "attemptedAt": "2026-10-22T08:05:09.633457+00:00"
+        "attemptedAt": "2026-10-22T09:38:31.295456+00:00"
       },
       "education": {
         "query": "theme:EDUCATION sourcecountry:PK sourcelang:English",
-        "attemptedAt": "2026-10-22T08:06:38.322394+00:00"
+        "attemptedAt": "2026-10-22T09:39:55.103612+00:00"
       },
       "health": {
         "query": "theme:MEDICAL sourcecountry:PK sourcelang:English",
-        "attemptedAt": "2026-10-22T08:08:04.314155+00:00"
+        "attemptedAt": "2026-10-22T09:40:12.793055+00:00"
       },
       "sports": {
         "query": "(cricket OR football OR soccer OR tennis OR olympics) sourcecountry:PK sourcelang:English",
-        "attemptedAt": "2026-10-22T08:09:29.333656+00:00"
+        "attemptedAt": "2026-10-22T09:41:38.389886+00:00"
       },
       "entertainment": {
         "query": "(film OR movie OR music OR bollywood) sourcecountry:PK sourcelang:English",
-        "attemptedAt": "2026-10-22T08:10:57.474565+00:00"
+        "attemptedAt": "2026-10-22T09:43:04.187259+00:00"
       }
     }
-  },
-  "validatedAt": "2026-10-22T08:22:21.648148+00:00"
+  }
 }
