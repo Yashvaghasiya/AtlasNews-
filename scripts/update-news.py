@@ -51,7 +51,6 @@ for code,(name,flag) in COUNTRIES.items():
         articles,status=request(query)
         if articles and code!='world' and any(a.get('sourcecountry') not in EXPECTED[code] for a in articles):
             articles=[]; status='skipped_country_code_mismatch'; skip=True
-            # Never retain potentially mislabeled country content.
             for key in TOPICS: target[key]=[]
         if articles is None:
             target[topic]=old.get(topic,[])
@@ -68,9 +67,8 @@ for code,(name,flag) in COUNTRIES.items():
             target[topic]=records
             if status=='success' and not records: status='empty'
         out['fetchStatus'][code][topic]=status
-        print(code,topic,status,len(target[topic]),flush=True)
+        print(stamp(),code,topic,status,len(target[topic]),flush=True)
         out['fetchedAt']=stamp()
         path.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
-# fetchedAt is the completion of this fetch attempt; per-query statuses distinguish failures.
 out['fetchedAt']=stamp()
 path.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
