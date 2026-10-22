@@ -1,5 +1,5 @@
 """Refresh GlobalPulse with paced GDELT DOC 2.0 requests. No dependencies."""
-import json, time, urllib.request, urllib.parse, urllib.error
+import json, time, sys, re, urllib.request, urllib.parse, urllib.error
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -9,10 +9,26 @@ EXPECTED = {'IN':{'India'},'US':{'United States','United States of America'},'UK
 path=Path('data.json')
 try: previous=json.loads(path.read_text())
 except (OSError, ValueError): previous={}
+def title_ok(title): return not re.search(r'[\u3400-\u9fff\u3040-\u30ff\uac00-\ud7af]',title)
+def stamp(): return datetime.now(timezone.utc).isoformat()
+# A no-network maintenance mode removes unmistakably non-English legacy titles.
+if '--validate-only' in sys.argv:
+    removed=0
+    for code in COUNTRIES:
+        bucket=previous.get('world',{}) if code=='world' else previous.get('countries',{}).get(code,{})
+        for topic in TOPICS:
+            old=bucket.get(topic,[])
+            bucket[topic]=[a for a in old if title_ok(a.get('title',''))]
+            if len(old)!=len(bucket[topic]):
+                removed+=len(old)-len(bucket[topic])
+                previous.setdefault('fetchStatus',{}).setdefault(code,{})[topic]='excluded_non_english_titles'
+    previous['validatedAt']=stamp()
+    path.write_text(json.dumps(previous,ensure_ascii=False,indent=2)+'\n')
+    print('Excluded non-English legacy titles:',removed)
+    sys.exit(0)
 out={'fetchedAt':None,'world':{},'countries':{},'fetchStatus':{},'queries':{}}
 last_request=0
 
-def stamp(): return datetime.now(timezone.utc).isoformat()
 def request(query):
     global last_request
     url='https://api.gdeltproject.org/api/v2/doc/doc?'+urllib.parse.urlencode({'query':query,'mode':'artlist','maxrecords':15,'format':'json'})
@@ -53,19 +69,23 @@ for code,(name,flag) in COUNTRIES.items():
             articles=[]; status='skipped_country_code_mismatch'; skip=True
             for key in TOPICS: target[key]=[]
         if articles is None:
-            target[topic]=old.get(topic,[])
+            target[topic]=[a for a in old.get(topic,[]) if title_ok(a.get('title',''))]
             if target[topic]: status+='; retained_previous_records'
         else:
             records=[]
+            rejected=0
             for a in articles:
                 url=a.get('url','')
                 if not url.startswith(('https://','http://')) or not a.get('title'): continue
+                if a.get('language','').lower()!='english' or not title_ok(a['title']):
+                    rejected+=1; continue
                 raw=a.get('seendate','')
                 try: seen=datetime.strptime(raw,'%Y%m%dT%H%M%SZ').replace(tzinfo=timezone.utc).isoformat()
                 except ValueError: seen=raw
                 records.append({'title':a['title'],'url':url,'source':a.get('domain') or urllib.parse.urlparse(url).netloc,'seendate':seen})
             target[topic]=records
-            if status=='success' and not records: status='empty'
+            if status=='success' and rejected: status='filtered_non_english_records' if records else 'excluded_non_english_titles'
+            elif status=='success' and not records: status='empty'
         out['fetchStatus'][code][topic]=status
         print(stamp(),code,topic,status,len(target[topic]),flush=True)
         out['fetchedAt']=stamp()
