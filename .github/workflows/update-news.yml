@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: '0 */6 * * *'
   workflow_dispatch:
+    inputs:
+      validate_only:
+        description: 'Validate existing data without API requests'
+        type: boolean
+        default: false
 permissions:
   contents: write
   pages: write
@@ -18,8 +23,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Fetch news with six-second pacing
-        run: python scripts/update-news.py
+      - name: Fetch or validate news
+        env:
+          VALIDATE_ONLY: ${{ inputs.validate_only || false }}
+        run: |
+          if [ "$VALIDATE_ONLY" = "true" ]; then
+            python scripts/update-news.py --validate-only
+          else
+            python scripts/update-news.py
+          fi
       - name: Commit refreshed news
         run: |
           git config user.name "github-actions[bot]"
