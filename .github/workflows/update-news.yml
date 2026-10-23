@@ -26,6 +26,8 @@ jobs:
       - name: Fetch or validate news
         env:
           VALIDATE_ONLY: ${{ inputs.validate_only || false }}
+          CURRENTS_API_KEY: ${{ secrets.CURRENTS_API_KEY }}
+          NEWSDATA_API_KEY: ${{ secrets.NEWSDATA_API_KEY }}
         run: |
           if [ "$VALIDATE_ONLY" = "true" ]; then
             python scripts/update-news.py --validate-only
