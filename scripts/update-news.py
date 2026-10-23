@@ -146,3 +146,144 @@ for code,topic,query,old,target in retry_queue:
 out['fetchedAt']=stamp()
 prune_records(out)
 path.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
+# Fallbacks run only after the existing GDELT end-of-run retry pass.
+# Official references: currentsapi.services/en/docs/latest_news (V2 taxonomy),
+# currentsapi.services/en/docs/ratelimit, newsdata.io/documentation/latest-news-api,
+# newsdata.io/documentation/api-rate-limit and newsdata.io/openapi.json.
+import os
+
+FALLBACK_CATEGORIES = {
+    'currents': {
+        'top': 'general', 'finance': 'economy_business_finance',
+        'technology': 'science_technology', 'marketing': 'economy_business_finance',
+        'education': 'education', 'health': 'health', 'sports': 'sport',
+        'entertainment': 'arts_culture_entertainment',
+    },
+    'newsdata': {
+        'top': 'top', 'finance': 'business', 'technology': 'technology',
+        'marketing': 'business', 'education': 'education', 'health': 'health',
+        'sports': 'sports', 'entertainment': 'entertainment',
+    },
+}
+FALLBACK_COUNTRIES = {'IN': 'in', 'US': 'us', 'UK': 'gb', 'CA': 'ca', 'AU': 'au', 'PK': 'pk'}
+fallback_sources = {
+    'currents': {'key': os.environ.get('CURRENTS_API_KEY', '').strip(),
+                 'endpoint': 'https://api.currentsapi.services/v2/latest-news',
+                 'header': 'Authorization', 'limit': 40, 'used': 0, 'stopped': False},
+    'newsdata': {'key': os.environ.get('NEWSDATA_API_KEY', '').strip(),
+                 'endpoint': 'https://newsdata.io/api/1/latest',
+                 'header': 'X-ACCESS-KEY', 'limit': 30, 'used': 0, 'stopped': False},
+}
+fallback_last_request = 0.0
+
+
+def fallback_records(source, articles):
+    """Normalize provider timestamps to the same UTC ISO seendate GDELT stores."""
+    records = []
+    for article in articles:
+        if not isinstance(article, dict):
+            continue
+        title = article.get('title')
+        url = article.get('url' if source == 'currents' else 'link', '')
+        language = str(article.get('language') or '').lower()
+        if not isinstance(title, str) or not title or not title_ok(title):
+            continue
+        if not isinstance(url, str) or not url.startswith(('https://', 'http://')):
+            continue
+        if language not in ('en', 'english'):
+            continue
+        raw = article.get('published' if source == 'currents' else 'pubDate')
+        if not isinstance(raw, str):
+            continue
+        try:
+            try:
+                seen = datetime.fromisoformat(raw.replace('Z', '+00:00'))
+            except ValueError:
+                seen = datetime.strptime(raw, '%Y-%m-%d %H:%M:%S %z')
+            # NewsData's default publication timezone is UTC.
+            if seen.tzinfo is None:
+                seen = seen.replace(tzinfo=timezone.utc)
+            seen = seen.astimezone(timezone.utc).isoformat()
+        except ValueError:
+            continue
+        publisher = article.get('source_name') if source == 'newsdata' else None
+        records.append({'title': title, 'url': url,
+                        'source': publisher or urllib.parse.urlparse(url).netloc,
+                        'seendate': seen})
+    return recent_records(records)[:15]
+
+
+def fallback_request(source, code, topic):
+    global fallback_last_request
+    config = fallback_sources[source]
+    category = FALLBACK_CATEGORIES[source].get(topic)
+    if not config['key'] or config['stopped'] or config['used'] >= config['limit'] or not category:
+        return []
+    params = {'language': 'en', 'category': category}
+    if code != 'world':
+        params['country'] = FALLBACK_COUNTRIES[code]
+    if source == 'currents':
+        params['page_size'] = 15
+    # NewsData defaults to ten articles/one credit on Free; never paginate.
+    # At most 30 one-credit calls in this run, below its 30-credit/15-minute cap.
+    # Other runs/clients can consume the same quota: stop immediately on 429.
+    time.sleep(max(0, 1.5 - (time.monotonic() - fallback_last_request)))
+    fallback_last_request = time.monotonic()
+    config['used'] += 1
+    url = config['endpoint'] + '?' + urllib.parse.urlencode(params)
+    headers = {'User-Agent': 'GlobalPulseNews/1.0', config['header']: config['key']}
+    try:
+        req = urllib.request.Request(url, headers=headers)
+        with urllib.request.urlopen(req, timeout=60) as response:
+            text = response.read().decode('utf-8')
+            # Remaining quota zero still permits consuming this last response.
+            for header in ('X-RateLimit-Remaining', 'X-API-Limit-Remaining'):
+                remaining = response.headers.get(header)
+                if remaining is not None and remaining.strip() == '0':
+                    config['stopped'] = True
+    except urllib.error.HTTPError as error:
+        if error.code in (401, 403, 429):
+            config['stopped'] = True
+        print(stamp(), source, 'http_' + str(error.code), flush=True)
+        return []
+    except Exception as error:
+        # Never print exception text, URLs containing keys, or response bodies.
+        print(stamp(), source, 'request_error_' + type(error).__name__, flush=True)
+        return []
+    try:
+        payload = json.loads(text)
+    except ValueError:
+        return []
+    if not isinstance(payload, dict):
+        return []
+    if payload.get('status') != ('ok' if source == 'currents' else 'success'):
+        # Providers may report quota errors in JSON rather than HTTP status.
+        message = json.dumps(payload).lower()
+        if any(term in message for term in ('quota', 'credit', 'rate_limit', 'ratelimit', 'rate limit', 'too many')):
+            config['stopped'] = True
+        print(stamp(), source, 'api_error', flush=True)
+        return []
+    articles = payload.get('news' if source == 'currents' else 'results', [])
+    return fallback_records(source, articles) if isinstance(articles, list) else []
+
+
+for code in COUNTRIES:
+    target = out['world'] if code == 'world' else out['countries'][code]
+    for topic in TOPICS:
+        status = out['fetchStatus'][code][topic]
+        if recent_records(target.get(topic, [])) and status.split(';', 1)[0] != 'rate_limited_after_retry':
+            continue
+        for source in ('currents', 'newsdata'):
+            records = fallback_request(source, code, topic)
+            if not records:
+                continue
+            target[topic] = records
+            out['fetchStatus'][code][topic] = status + '; fallback_' + source
+            print(stamp(), code, topic, 'fallback_' + source, len(records), flush=True)
+            out['fetchedAt'] = stamp()
+            prune_records(out)
+            path.write_text(json.dumps(out, ensure_ascii=False, indent=2) + '\n')
+            break
+out['fetchedAt'] = stamp()
+prune_records(out)
+path.write_text(json.dumps(out, ensure_ascii=False, indent=2) + '\n')
