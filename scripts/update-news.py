@@ -16,12 +16,19 @@ def recent_records(records):
     kept=[]
     for record in records:
         try:
-            seen=datetime.fromisoformat(record.get('seendate','').replace('Z','+00:00'))
+            raw=record.get('seendate','')
+            try: seen=datetime.strptime(raw,'%Y%m%dT%H%M%SZ').replace(tzinfo=timezone.utc)
+            except ValueError: seen=datetime.fromisoformat(raw.replace('Z','+00:00'))
             if seen.tzinfo is None: seen=seen.replace(tzinfo=timezone.utc)
-        except (TypeError,ValueError):
+        except (AttributeError,TypeError,ValueError):
             continue
         if seen >= cutoff: kept.append(record)
     return kept
+def prune_records(data):
+    for code in COUNTRIES:
+        bucket=data.get('world',{}) if code=='world' else data.get('countries',{}).get(code,{})
+        for topic in TOPICS:
+            if topic in bucket: bucket[topic]=recent_records(bucket[topic])
 # A no-network maintenance mode removes unmistakably non-English legacy titles.
 if '--validate-only' in sys.argv:
     removed=0
@@ -34,6 +41,7 @@ if '--validate-only' in sys.argv:
                 removed+=len(old)-len(bucket[topic])
                 previous.setdefault('fetchStatus',{}).setdefault(code,{})[topic]='excluded_non_english_titles'
     previous['validatedAt']=stamp()
+    prune_records(previous)
     path.write_text(json.dumps(previous,ensure_ascii=False,indent=2)+'\n')
     print('Excluded non-English legacy titles:',removed)
     sys.exit(0)
@@ -96,31 +104,45 @@ for code,(name,flag) in COUNTRIES.items():
                 try: seen=datetime.strptime(raw,'%Y%m%dT%H%M%SZ').replace(tzinfo=timezone.utc).isoformat()
                 except ValueError: seen=raw
                 records.append({'title':a['title'],'url':url,'source':a.get('domain') or urllib.parse.urlparse(url).netloc,'seendate':seen})
+            records=recent_records(records)
             target[topic]=records
             if status=='success' and rejected: status='filtered_non_english_records' if records else 'excluded_non_english_titles'
             elif status=='success' and not records: status='empty'
         out['fetchStatus'][code][topic]=status
         print(stamp(),code,topic,status,len(target[topic]),flush=True)
         out['fetchedAt']=stamp()
+        prune_records(out)
         path.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
 # One bounded end-of-run attempt for each section still rate-limited after its normal retry.
+retry_skipped=set()
 for code,topic,query,old,target in retry_queue:
+    if code in retry_skipped or any(s=='skipped_country_code_mismatch' for s in out['fetchStatus'][code].values()): continue
+    out['queries'][code][topic]['attemptedAt']=stamp()
     articles,status=request(query)
+    if articles and code!='world' and any(a.get('sourcecountry') not in EXPECTED[code] for a in articles):
+        articles=[]; status='skipped_country_code_mismatch'; retry_skipped.add(code)
+        for key in TOPICS: target[key]=[]
     if articles is None:
         target[topic]=[a for a in recent_records(old.get(topic,[])) if title_ok(a.get('title',''))]
         if target[topic]: status+='; retained_previous_records'
     else:
         records=[]
+        rejected=0
         for a in articles:
             url=a.get('url','')
-            if not url.startswith(('https://','http://')) or not a.get('title') or a.get('language','').lower()!='english' or not title_ok(a['title']): continue
+            if not url.startswith(('https://','http://')) or not a.get('title'): continue
+            if a.get('language','').lower()!='english' or not title_ok(a['title']):
+                rejected+=1; continue
             raw=a.get('seendate','')
             try: seen=datetime.strptime(raw,'%Y%m%dT%H%M%SZ').replace(tzinfo=timezone.utc).isoformat()
             except ValueError: seen=raw
             records.append({'title':a['title'],'url':url,'source':a.get('domain') or urllib.parse.urlparse(url).netloc,'seendate':seen})
+        records=recent_records(records)
         target[topic]=records
-        status='success' if records else 'empty'
+        if status=='success' and rejected: status='filtered_non_english_records' if records else 'excluded_non_english_titles'
+        elif status=='success' and not records: status='empty'
     out['fetchStatus'][code][topic]=status
     print(stamp(),code,topic,'end_retry_'+status,len(target[topic]),flush=True)
 out['fetchedAt']=stamp()
+prune_records(out)
 path.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
