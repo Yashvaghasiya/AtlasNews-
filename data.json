@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-10-22T23:18:05.839935+00:00",
+  "fetchedAt": "2026-10-23T01:37:22.060718+00:00",
   "world": {
     "top": [],
     "finance": [],
@@ -839,7 +839,98 @@
     "US": {
       "name": "USA",
       "flag": "🇺🇸",
-      "top": [],
+      "top": [
+        {
+          "title": "NASA Chief Jared Isaacman Says  Never Bet Against  Elon Musk , Adds  We Cant Do It Without  SpaceX for Moon Base",
+          "url": "https://finance.yahoo.com/technology/ai/articles/nasa-chief-jared-isaacman-says-180019012.html",
+          "source": "finance.yahoo.com",
+          "seendate": "2026-07-31T06:00:00+00:00"
+        },
+        {
+          "title": "BE Stock Pops as Bloom Energy Reports Record Quarterly Revenue",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/stock-pops-bloom-energy-reports-182537381.html",
+          "source": "finance.yahoo.com",
+          "seendate": "2026-07-31T06:00:00+00:00"
+        },
+        {
+          "title": "Synopsys Doubles Down on AI Chip Design With Microsoft and AMD . How to Play SNPS Stock Here . ",
+          "url": "https://finance.yahoo.com/technology/ai/articles/synopsys-doubles-down-ai-chip-183637901.html",
+          "source": "finance.yahoo.com",
+          "seendate": "2026-07-31T06:00:00+00:00"
+        },
+        {
+          "title": "The S & P 500 Danger Zone Is Hiding in These 100 Stocks . 2 Ways to Protect Yourself from the Implosion . ",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/p-500-danger-zone-hiding-182609720.html",
+          "source": "finance.yahoo.com",
+          "seendate": "2026-07-31T06:00:00+00:00"
+        },
+        {
+          "title": "Fed policymakers leave rates unchanged amid elevated uncertainty",
+          "url": "https://finance.yahoo.com/economy/policy/articles/fed-policymakers-leave-rates-unchanged-180106279.html",
+          "source": "finance.yahoo.com",
+          "seendate": "2026-07-31T06:00:00+00:00"
+        },
+        {
+          "title": "American Assets Trust Q2 Earnings Call Highlights",
+          "url": "https://finance.yahoo.com/real-estate/articles/american-assets-trust-q2-earnings-180406841.html",
+          "source": "finance.yahoo.com",
+          "seendate": "2026-07-31T06:15:00+00:00"
+        },
+        {
+          "title": "Why Japanese and Chinese Stocks Are Diverging and How to Play Them Here",
+          "url": "https://finance.yahoo.com/markets/world-indices/articles/why-japanese-chinese-stocks-diverging-184819463.html",
+          "source": "finance.yahoo.com",
+          "seendate": "2026-07-31T06:15:00+00:00"
+        },
+        {
+          "title": "Frontier Group Q2 Earnings Call Highlights",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/frontier-group-q2-earnings-call-180405990.html",
+          "source": "finance.yahoo.com",
+          "seendate": "2026-07-31T06:15:00+00:00"
+        },
+        {
+          "title": "World - renowned climber Nirmal Purja among 10 feared missing following avalanche in Pakistan",
+          "url": "https://www.yahoo.com/news/world/articles/world-renowned-climber-nirmal-purja-002910814.html",
+          "source": "yahoo.com",
+          "seendate": "2026-07-31T06:15:00+00:00"
+        },
+        {
+          "title": "Trustmark Q2 Earnings Call Highlights",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/trustmark-q2-earnings-call-highlights-180405319.html",
+          "source": "finance.yahoo.com",
+          "seendate": "2026-07-31T06:15:00+00:00"
+        },
+        {
+          "title": "Anthropic says its models went rogue and hacked 3 companies during testing",
+          "url": "https://tech.yahoo.com/ai/claude/articles/anthropic-says-models-went-rogue-015636626.html",
+          "source": "tech.yahoo.com",
+          "seendate": "2026-07-31T04:15:00+00:00"
+        },
+        {
+          "title": "Jenn Johnston Named CMO of Amazing Brands",
+          "url": "https://finance.yahoo.com/small-business/articles/jenn-johnston-named-cmo-amazing-155741063.html",
+          "source": "finance.yahoo.com",
+          "seendate": "2026-07-31T04:15:00+00:00"
+        },
+        {
+          "title": "The Fed Has Held Interest Rates at 3 . 50 %- 3 . 75 % for 5 Straight Meetings Under Kevin Warsh , a Signal That Borrowers Shouldnt Expect Relief Soon",
+          "url": "https://finance.yahoo.com/economy/policy/articles/fed-held-interest-rates-3-175100951.html",
+          "source": "finance.yahoo.com",
+          "seendate": "2026-07-31T05:45:00+00:00"
+        },
+        {
+          "title": "This Bill Gates Stock Just Hit a New 52 - Week High and 1 Signal Says There More Room to Run",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/bill-gates-stock-just-hit-180941180.html",
+          "source": "finance.yahoo.com",
+          "seendate": "2026-07-31T05:45:00+00:00"
+        },
+        {
+          "title": "Redfin reveals surprising turn in America housing market",
+          "url": "https://finance.yahoo.com/real-estate/articles/redfin-reveals-surprising-turn-america-174700312.html",
+          "source": "finance.yahoo.com",
+          "seendate": "2026-07-31T05:45:00+00:00"
+        }
+      ],
       "finance": [],
       "technology": [],
       "marketing": [
@@ -1290,16 +1381,16 @@
           "seendate": "2026-09-12T08:00:00+00:00"
         },
         {
-          "title": "Column :  Best of the Best  is a poor excuse for representation – The Daily Tar Heel",
-          "url": "https://dailytarheel.com/486543/opinion/opinion-column-best-of-the-best-bollywood/",
-          "source": "dailytarheel.com",
-          "seendate": "2026-10-20T23:30:00+00:00"
-        },
-        {
           "title": "Sci - Fi Franchise  Kri8 Universe  Launches at Toronto Market",
           "url": "https://variety.com/2026/film/markets-festivals/sci-fi-franchise-kri8-universe-toronto-market-1236858647/",
           "source": "variety.com",
           "seendate": "2026-09-12T14:30:00+00:00"
+        },
+        {
+          "title": "Priyanka Chopra to be the second actress in Jagga Jasoos",
+          "url": "https://indoamerican-news.com/priyanka-chopra-to-be-the-second-actress-in-jagga-jasoos/",
+          "source": "indoamerican-news.com",
+          "seendate": "2026-08-01T14:30:00+00:00"
         }
       ]
     },
@@ -2254,94 +2345,94 @@
       "flag": "🇵🇰",
       "top": [
         {
-          "title": "Jannat Mirza beats the heat with sister Alishba Anjum during Family Pool Day",
-          "url": "https://en.dailypakistan.com.pk/30-Jul-2026/jannat-mirza-beats-the-heat-with-sister-alishba-anjum-during-family-pool-day",
+          "title": "Kashmir Elections 2nd Phase : Rawalpindi Division to witness massive security deployment",
+          "url": "https://en.dailypakistan.com.pk/31-Jul-2026/kashmir-elections-2nd-phase-rawalpindi-division-to-witness-massive-security-deployment",
           "source": "en.dailypakistan.com.pk",
-          "seendate": "2026-07-30T21:45:00+00:00"
+          "seendate": "2026-07-31T21:00:00+00:00"
         },
         {
-          "title": "Petrol Price in Pakistan jumps to Rs336 . 15 per Litre after another hike",
-          "url": "https://en.dailypakistan.com.pk/30-Jul-2026/petrol-price-in-pakistan-jumps-to-rs336-15-per-litre-after-another-hike",
+          "title": "Sindh announces holiday for schools on August 4",
+          "url": "https://en.dailypakistan.com.pk/31-Jul-2026/sindh-announces-holiday-for-schools-on-august-4",
           "source": "en.dailypakistan.com.pk",
-          "seendate": "2026-07-30T21:45:00+00:00"
+          "seendate": "2026-07-31T16:15:00+00:00"
         },
         {
-          "title": "Geo News London Bureau Chief Murtaza Ali Shah Assaulted While Covering Kashmir Protest",
-          "url": "https://en.dailypakistan.com.pk/30-Jul-2026/geo-news-london-bureau-chief-murtaza-ali-shah-assaulted-while-covering-kashmir-protest",
+          "title": "Heavy monsoon rains wreak havoc in Murree , Rawalpindi and Islamabad",
+          "url": "https://en.dailypakistan.com.pk/31-Jul-2026/heavy-monsoon-rains-wreak-havoc-in-murree-rawalpindi-and-islamabad",
           "source": "en.dailypakistan.com.pk",
-          "seendate": "2026-07-30T21:45:00+00:00"
+          "seendate": "2026-07-31T16:15:00+00:00"
         },
         {
-          "title": "Saudi Falcon Vision Group explore $10 billion investment opportunities in Pakistan",
-          "url": "https://en.dailypakistan.com.pk/30-Jul-2026/saudi-falcon-vision-group-explore-10-billion-investment-opportunities-in-pakistan",
+          "title": "DG ISPR slams  Elite  Baloch Sardars for fueling Terror to get Share in Rs1Trillion Budget",
+          "url": "https://en.dailypakistan.com.pk/31-Jul-2026/dg-ispr-slams-elite-baloch-sardars-for-fueling-terror-to-get-share-in-rs1trillion-budget",
           "source": "en.dailypakistan.com.pk",
-          "seendate": "2026-07-30T21:45:00+00:00"
+          "seendate": "2026-07-31T16:15:00+00:00"
         },
         {
-          "title": "BISP warns against  baseless allegation , says legal action possible under PECA",
-          "url": "https://en.dailypakistan.com.pk/31-Jul-2026/bisp-warns-against-baseless-allegations-says-legal-action-possible-under-peca",
+          "title": "Earthquake shakes Karachi",
+          "url": "https://en.dailypakistan.com.pk/31-Jul-2026/earthquake-shakes-karachi",
           "source": "en.dailypakistan.com.pk",
-          "seendate": "2026-07-30T21:45:00+00:00"
+          "seendate": "2026-07-31T16:15:00+00:00"
         },
         {
-          "title": "Pakistan pushes US - Iran Back to Islamabad MoU as amid threat of Regional Spillover",
-          "url": "https://en.dailypakistan.com.pk/30-Jul-2026/pakistan-pushes-us-iran-back-to-islamabad-mou-as-amid-threat-of-regional-spillover",
+          "title": "Here What DG ISPR said about Mohsin Naqvi New Provinces Statement",
+          "url": "https://en.dailypakistan.com.pk/31-Jul-2026/heres-what-dg-ispr-said-about-mohsin-naqvis-new-provinces-statement",
           "source": "en.dailypakistan.com.pk",
-          "seendate": "2026-07-30T13:00:00+00:00"
+          "seendate": "2026-07-31T16:15:00+00:00"
         },
         {
-          "title": "Saima Noor Age - Defying transformation leaves fans stunned",
-          "url": "https://en.dailypakistan.com.pk/30-Jul-2026/saima-noors-age-defying-transformation-leaves-fans-stunned",
+          "title": "Aima Baig faces online criticism over bold new look",
+          "url": "https://en.dailypakistan.com.pk/31-Jul-2026/aima-baig-faces-online-criticism-over-bold-new-look",
           "source": "en.dailypakistan.com.pk",
-          "seendate": "2026-07-30T13:00:00+00:00"
+          "seendate": "2026-07-31T16:15:00+00:00"
         },
         {
-          "title": "Pakistan gets LNG boost as Qatar Tanker clears Hormuz amid Tensions",
-          "url": "https://en.dailypakistan.com.pk/30-Jul-2026/pakistan-gets-lng-boost-as-qatar-tanker-clears-hormuz-amid-tensions",
+          "title": "Peshawar Board announces Matric annual results date",
+          "url": "https://en.dailypakistan.com.pk/31-Jul-2026/peshawar-board-announces-matric-annual-results-date",
           "source": "en.dailypakistan.com.pk",
-          "seendate": "2026-07-30T13:00:00+00:00"
+          "seendate": "2026-07-31T16:15:00+00:00"
         },
         {
-          "title": "Gold Price jumps to Rs427 , 436 Per Tola in Pakistan after slight jump",
-          "url": "https://en.dailypakistan.com.pk/30-Jul-2026/gold-price-jumps-to-rs427436-per-tola-in-pakistan-after-slight-jump",
+          "title": "Tabish Hashmi signs off from comedy show  Hasna Mana Hai  ",
+          "url": "https://en.dailypakistan.com.pk/01-Aug-2026/tabish-hashmi-signs-off-from-comedy-show-hasna-mana-hai",
           "source": "en.dailypakistan.com.pk",
-          "seendate": "2026-07-30T13:00:00+00:00"
+          "seendate": "2026-08-01T21:15:00+00:00"
         },
         {
-          "title": "Bitget Wallet Card Turns Cashback Into Bitcoin , Gold and Tokenised Stocks",
-          "url": "https://en.dailypakistan.com.pk/30-Jul-2026/bitget-wallet-card-turns-cashback-into-bitcoin-gold-and-tokenised-stocks",
+          "title": "  Truth Has a Price : Celebrities , fans rally behind Tabish Hashmi after  Hasna Mana Hai  exit",
+          "url": "https://en.dailypakistan.com.pk/01-Aug-2026/truth-has-a-price-celebrities-fans-rally-behind-tabish-hashmi-after-hasna-mana-hai-exit",
           "source": "en.dailypakistan.com.pk",
-          "seendate": "2026-07-30T13:00:00+00:00"
+          "seendate": "2026-08-01T21:15:00+00:00"
         },
         {
-          "title": "Army , Rangers mobilised for Chehlum Security of Hazrat Imam Hussain ( RA ) ",
-          "url": "https://en.dailypakistan.com.pk/30-Jul-2026/army-rangers-mobilised-for-chehlum-security-of-hazrat-imam-hussain-ra",
+          "title": "Azad Kashmir Elections Phase 2 : Muzaffarabad , Neelum Division , Refugee Constituencies",
+          "url": "https://en.dailypakistan.com.pk/01-Aug-2026/azad-kashmir-elections-phase-2-muzaffarabad-neelum-division-refugee-constituencies",
           "source": "en.dailypakistan.com.pk",
-          "seendate": "2026-07-30T13:00:00+00:00"
+          "seendate": "2026-08-01T11:30:00+00:00"
         },
         {
-          "title": "New College Timings announced from August 1",
-          "url": "https://en.dailypakistan.com.pk/30-Jul-2026/new-college-timings-announced-from-august-1",
+          "title": "Pakistan paid over Rs13 Trillion to IPPs , including Plants that generated No Electricity",
+          "url": "https://en.dailypakistan.com.pk/01-Aug-2026/pakistan-paid-over-rs13-trillion-to-ipps-including-plants-that-generated-no-electricity",
           "source": "en.dailypakistan.com.pk",
-          "seendate": "2026-07-30T13:00:00+00:00"
+          "seendate": "2026-08-01T11:30:00+00:00"
         },
         {
-          "title": "AJK Assembly moves against Khawaja Asif over  Anti - Pakistan  remarks as clashes continue",
-          "url": "https://en.dailypakistan.com.pk/30-Jul-2026/ajk-assembly-moves-against-khawaja-asif-over-anti-pakistan-remarks-as-clashes-continue",
+          "title": "  Hybrid System not going anywhere : Khawaja Asif says after Mohsin Naqvi , DG ISPR statements",
+          "url": "https://en.dailypakistan.com.pk/01-Aug-2026/hybrid-system-not-going-anywhere-khawaja-asif-says-after-mohsin-naqvi-dg-isprs-statements",
           "source": "en.dailypakistan.com.pk",
-          "seendate": "2026-07-30T13:00:00+00:00"
+          "seendate": "2026-08-01T11:30:00+00:00"
         },
         {
-          "title": "Iranian Rial to PKR : 1 Crore Irani Rials fall below Rs5 , 000 in Pakistan",
-          "url": "https://en.dailypakistan.com.pk/30-Jul-2026/iranian-rial-to-pkr-1-crore-irani-rials-fall-below-rs5000-in-pakistan",
+          "title": "Gold Price in Pakistan today drops to Rs426 , 736 Per Tola ; Check Lahore , Karachi Rates",
+          "url": "https://en.dailypakistan.com.pk/01-Aug-2026/gold-price-in-pakistan-today-drops-to-rs426736-per-tola-check-lahore-karachi-rates",
           "source": "en.dailypakistan.com.pk",
-          "seendate": "2026-07-30T13:00:00+00:00"
+          "seendate": "2026-08-01T11:30:00+00:00"
         },
         {
-          "title": "AI Learns to hack as ChatGPT Agent breaks into Real - World Systems without Human Help",
-          "url": "https://en.dailypakistan.com.pk/30-Jul-2026/ai-learns-to-hack-as-chatgpt-agent-breaks-into-real-world-systems-without-human-help",
+          "title": "Pakistan Influencer Awards set to redefine influence in the country creator economy",
+          "url": "https://en.dailypakistan.com.pk/01-Aug-2026/pakistan-influencer-awards-set-to-redefine-influence-in-the-countrys-creator-economy",
           "source": "en.dailypakistan.com.pk",
-          "seendate": "2026-07-30T13:00:00+00:00"
+          "seendate": "2026-08-01T11:30:00+00:00"
         }
       ],
       "finance": [],
@@ -2812,12 +2903,12 @@
     "world": {
       "top": "rate_limited_after_retry",
       "finance": "rate_limited_after_retry",
-      "technology": "rate_limited_after_retry",
+      "technology": "empty",
       "marketing": "success",
-      "education": "success",
-      "health": "filtered_non_english_records",
-      "sports": "rate_limited_after_retry; retained_previous_records",
-      "entertainment": "success"
+      "education": "rate_limited_after_retry; retained_previous_records",
+      "health": "rate_limited_after_retry; retained_previous_records",
+      "sports": "success",
+      "entertainment": "rate_limited_after_retry; retained_previous_records"
     },
     "IN": {
       "top": "rate_limited_after_retry; retained_previous_records",
@@ -2825,48 +2916,48 @@
       "technology": "empty",
       "marketing": "success",
       "education": "rate_limited_after_retry; retained_previous_records",
-      "health": "success",
+      "health": "rate_limited_after_retry; retained_previous_records",
       "sports": "rate_limited_after_retry",
       "entertainment": "rate_limited_after_retry"
     },
     "US": {
-      "top": "rate_limited_after_retry",
+      "top": "success",
       "finance": "rate_limited_after_retry",
-      "technology": "empty",
+      "technology": "rate_limited_after_retry",
       "marketing": "rate_limited_after_retry; retained_previous_records",
-      "education": "success",
-      "health": "rate_limited_after_retry; retained_previous_records",
-      "sports": "success",
-      "entertainment": "rate_limited_after_retry; retained_previous_records"
-    },
-    "UK": {
-      "top": "rate_limited_after_retry; retained_previous_records",
-      "finance": "rate_limited_after_retry",
-      "technology": "empty",
-      "marketing": "rate_limited_after_retry",
       "education": "rate_limited_after_retry; retained_previous_records",
       "health": "rate_limited_after_retry; retained_previous_records",
       "sports": "rate_limited_after_retry; retained_previous_records",
       "entertainment": "success"
     },
-    "CA": {
-      "top": "success",
-      "finance": "empty",
-      "technology": "empty",
-      "marketing": "rate_limited_after_retry; retained_previous_records",
+    "UK": {
+      "top": "rate_limited_after_retry; retained_previous_records",
+      "finance": "rate_limited_after_retry",
+      "technology": "rate_limited_after_retry",
+      "marketing": "rate_limited_after_retry",
       "education": "rate_limited_after_retry; retained_previous_records",
+      "health": "success",
+      "sports": "success",
+      "entertainment": "rate_limited_after_retry; retained_previous_records"
+    },
+    "CA": {
+      "top": "rate_limited_after_retry; retained_previous_records",
+      "finance": "empty",
+      "technology": "rate_limited_after_retry",
+      "marketing": "rate_limited_after_retry; retained_previous_records",
+      "education": "success",
       "health": "rate_limited_after_retry",
       "sports": "rate_limited_after_retry; retained_previous_records",
       "entertainment": "success"
     },
     "AU": {
-      "top": "rate_limited_after_retry",
-      "finance": "rate_limited_after_retry",
-      "technology": "empty",
-      "marketing": "rate_limited_after_retry",
-      "education": "rate_limited_after_retry",
-      "health": "rate_limited_after_retry",
-      "sports": "rate_limited_after_retry",
+      "top": "skipped_country_code_mismatch",
+      "finance": "skipped_country_code_mismatch",
+      "technology": "skipped_country_code_mismatch",
+      "marketing": "skipped_country_code_mismatch",
+      "education": "skipped_country_code_mismatch",
+      "health": "skipped_country_code_mismatch",
+      "sports": "skipped_country_code_mismatch",
       "entertainment": "skipped_country_code_mismatch"
     },
     "PK": {
@@ -2877,246 +2968,218 @@
       "education": "rate_limited_after_retry; retained_previous_records",
       "health": "rate_limited_after_retry; retained_previous_records",
       "sports": "rate_limited_after_retry; retained_previous_records",
-      "entertainment": "success"
+      "entertainment": "rate_limited_after_retry; retained_previous_records"
     }
   },
   "queries": {
     "world": {
       "top": {
         "query": "sourcelang:English",
-        "attemptedAt": "2026-10-22T22:12:07.281840+00:00"
+        "attemptedAt": "2026-10-23T00:42:38.987806+00:00"
       },
       "finance": {
         "query": "theme:ECONOMY sourcelang:English",
-        "attemptedAt": "2026-10-22T22:13:29.972815+00:00"
+        "attemptedAt": "2026-10-23T00:43:57.738559+00:00"
       },
       "technology": {
         "query": "theme:TECH sourcelang:English",
-        "attemptedAt": "2026-10-22T22:14:51.466480+00:00"
+        "attemptedAt": "2026-10-23T00:45:20.416678+00:00"
       },
       "marketing": {
         "query": "(marketing OR advertising) sourcelang:English",
-        "attemptedAt": "2026-10-22T22:16:32.963291+00:00"
+        "attemptedAt": "2026-10-23T00:45:36.720401+00:00"
       },
       "education": {
         "query": "theme:EDUCATION sourcelang:English",
-        "attemptedAt": "2026-10-22T22:18:06.247139+00:00"
+        "attemptedAt": "2026-10-23T00:45:54.841441+00:00"
       },
       "health": {
         "query": "theme:MEDICAL sourcelang:English",
-        "attemptedAt": "2026-10-22T22:19:35.726672+00:00"
+        "attemptedAt": "2026-10-23T00:47:19.032806+00:00"
       },
       "sports": {
         "query": "(cricket OR football OR soccer OR tennis OR olympics) sourcelang:English",
-        "attemptedAt": "2026-10-22T22:21:12.431632+00:00"
+        "attemptedAt": "2026-10-23T00:48:41.313115+00:00"
       },
       "entertainment": {
         "query": "(film OR movie OR music OR bollywood) sourcelang:English",
-        "attemptedAt": "2026-10-22T22:22:33.264096+00:00"
+        "attemptedAt": "2026-10-23T00:48:52.298047+00:00"
       }
     },
     "IN": {
       "top": {
         "query": "sourcecountry:IN sourcelang:English",
-        "attemptedAt": "2026-10-22T22:22:51.641325+00:00"
+        "attemptedAt": "2026-10-23T00:50:13.516001+00:00"
       },
       "finance": {
         "query": "theme:ECONOMY sourcecountry:IN sourcelang:English",
-        "attemptedAt": "2026-10-22T22:24:10.117347+00:00"
+        "attemptedAt": "2026-10-23T00:51:35.035758+00:00"
       },
       "technology": {
         "query": "theme:TECH sourcecountry:IN sourcelang:English",
-        "attemptedAt": "2026-10-22T22:25:31.833727+00:00"
+        "attemptedAt": "2026-10-23T00:52:55.792492+00:00"
       },
       "marketing": {
         "query": "(marketing OR advertising) sourcecountry:IN sourcelang:English",
-        "attemptedAt": "2026-10-22T22:26:54.735591+00:00"
+        "attemptedAt": "2026-10-23T00:53:07.987132+00:00"
       },
       "education": {
         "query": "theme:EDUCATION sourcecountry:IN sourcelang:English",
-        "attemptedAt": "2026-10-22T22:27:04.611647+00:00"
+        "attemptedAt": "2026-10-23T00:53:27.888744+00:00"
       },
       "health": {
         "query": "theme:MEDICAL sourcecountry:IN sourcelang:English",
-        "attemptedAt": "2026-10-22T22:28:23.048863+00:00"
+        "attemptedAt": "2026-10-23T00:54:45.404926+00:00"
       },
       "sports": {
         "query": "(cricket OR football OR soccer OR tennis OR olympics) sourcecountry:IN sourcelang:English",
-        "attemptedAt": "2026-10-22T22:29:44.321478+00:00"
+        "attemptedAt": "2026-10-23T00:56:04.767088+00:00"
       },
       "entertainment": {
         "query": "(film OR movie OR music OR bollywood) sourcecountry:IN sourcelang:English",
-        "attemptedAt": "2026-10-22T22:31:10.293944+00:00"
+        "attemptedAt": "2026-10-23T00:57:24.143389+00:00"
       }
     },
     "US": {
       "top": {
         "query": "sourcecountry:US sourcelang:English",
-        "attemptedAt": "2026-10-22T22:32:38.338495+00:00"
+        "attemptedAt": "2026-10-23T00:58:39.755691+00:00"
       },
       "finance": {
         "query": "theme:ECONOMY sourcecountry:US sourcelang:English",
-        "attemptedAt": "2026-10-22T22:34:03.846069+00:00"
+        "attemptedAt": "2026-10-23T00:58:52.164692+00:00"
       },
       "technology": {
         "query": "theme:TECH sourcecountry:US sourcelang:English",
-        "attemptedAt": "2026-10-22T22:35:26.700465+00:00"
+        "attemptedAt": "2026-10-23T01:00:13.638072+00:00"
       },
       "marketing": {
         "query": "(marketing OR advertising) sourcecountry:US sourcelang:English",
-        "attemptedAt": "2026-10-22T22:35:40.934419+00:00"
+        "attemptedAt": "2026-10-23T01:01:50.913743+00:00"
       },
       "education": {
         "query": "theme:EDUCATION sourcecountry:US sourcelang:English",
-        "attemptedAt": "2026-10-22T22:37:02.885536+00:00"
+        "attemptedAt": "2026-10-23T01:03:18.561259+00:00"
       },
       "health": {
         "query": "theme:MEDICAL sourcecountry:US sourcelang:English",
-        "attemptedAt": "2026-10-22T22:38:26.227672+00:00"
+        "attemptedAt": "2026-10-23T01:04:43.763385+00:00"
       },
       "sports": {
         "query": "(cricket OR football OR soccer OR tennis OR olympics) sourcecountry:US sourcelang:English",
-        "attemptedAt": "2026-10-22T22:39:46.981645+00:00"
+        "attemptedAt": "2026-10-23T01:06:07.070133+00:00"
       },
       "entertainment": {
         "query": "(film OR movie OR music OR bollywood) sourcecountry:US sourcelang:English",
-        "attemptedAt": "2026-10-22T22:41:13.292400+00:00"
+        "attemptedAt": "2026-10-23T01:07:30.534447+00:00"
       }
     },
     "UK": {
       "top": {
         "query": "sourcecountry:UK sourcelang:English",
-        "attemptedAt": "2026-10-22T22:42:34.173832+00:00"
+        "attemptedAt": "2026-10-23T01:08:58.647230+00:00"
       },
       "finance": {
         "query": "theme:ECONOMY sourcecountry:UK sourcelang:English",
-        "attemptedAt": "2026-10-22T22:43:52.890226+00:00"
+        "attemptedAt": "2026-10-23T01:10:21.282177+00:00"
       },
       "technology": {
         "query": "theme:TECH sourcecountry:UK sourcelang:English",
-        "attemptedAt": "2026-10-22T22:45:18.091919+00:00"
+        "attemptedAt": "2026-10-23T01:11:45.757758+00:00"
       },
       "marketing": {
         "query": "(marketing OR advertising) sourcecountry:UK sourcelang:English",
-        "attemptedAt": "2026-10-22T22:45:34.076163+00:00"
+        "attemptedAt": "2026-10-23T01:13:08.749536+00:00"
       },
       "education": {
         "query": "theme:EDUCATION sourcecountry:UK sourcelang:English",
-        "attemptedAt": "2026-10-22T22:46:57.882439+00:00"
+        "attemptedAt": "2026-10-23T01:14:30.059779+00:00"
       },
       "health": {
         "query": "theme:MEDICAL sourcecountry:UK sourcelang:English",
-        "attemptedAt": "2026-10-22T22:48:21.277302+00:00"
+        "attemptedAt": "2026-10-23T01:15:52.715718+00:00"
       },
       "sports": {
         "query": "(cricket OR football OR soccer OR tennis OR olympics) sourcecountry:UK sourcelang:English",
-        "attemptedAt": "2026-10-22T22:49:44.874639+00:00"
+        "attemptedAt": "2026-10-23T01:17:21.923269+00:00"
       },
       "entertainment": {
         "query": "(film OR movie OR music OR bollywood) sourcecountry:UK sourcelang:English",
-        "attemptedAt": "2026-10-22T22:51:10.913763+00:00"
+        "attemptedAt": "2026-10-23T01:17:35.178005+00:00"
       }
     },
     "CA": {
       "top": {
         "query": "sourcecountry:CA sourcelang:English",
-        "attemptedAt": "2026-10-22T22:51:23.435762+00:00"
+        "attemptedAt": "2026-10-23T01:19:00.329133+00:00"
       },
       "finance": {
         "query": "theme:ECONOMY sourcecountry:CA sourcelang:English",
-        "attemptedAt": "2026-10-22T22:51:52.970762+00:00"
+        "attemptedAt": "2026-10-23T01:20:26.407620+00:00"
       },
       "technology": {
         "query": "theme:TECH sourcecountry:CA sourcelang:English",
-        "attemptedAt": "2026-10-22T22:52:05.961477+00:00"
+        "attemptedAt": "2026-10-23T01:20:44.191512+00:00"
       },
       "marketing": {
         "query": "(marketing OR advertising) sourcecountry:CA sourcelang:English",
-        "attemptedAt": "2026-10-22T22:52:21.367035+00:00"
+        "attemptedAt": "2026-10-23T01:22:05.733000+00:00"
       },
       "education": {
         "query": "theme:EDUCATION sourcecountry:CA sourcelang:English",
-        "attemptedAt": "2026-10-22T22:53:39.353135+00:00"
+        "attemptedAt": "2026-10-23T01:23:25.582676+00:00"
       },
       "health": {
         "query": "theme:MEDICAL sourcecountry:CA sourcelang:English",
-        "attemptedAt": "2026-10-22T22:54:58.228277+00:00"
+        "attemptedAt": "2026-10-23T01:23:39.660820+00:00"
       },
       "sports": {
         "query": "(cricket OR football OR soccer OR tennis OR olympics) sourcecountry:CA sourcelang:English",
-        "attemptedAt": "2026-10-22T22:56:19.522244+00:00"
+        "attemptedAt": "2026-10-23T01:24:58.287712+00:00"
       },
       "entertainment": {
         "query": "(film OR movie OR music OR bollywood) sourcecountry:CA sourcelang:English",
-        "attemptedAt": "2026-10-22T22:57:38.220093+00:00"
+        "attemptedAt": "2026-10-23T01:26:19.253945+00:00"
       }
     },
     "AU": {
       "top": {
         "query": "sourcecountry:AU sourcelang:English",
-        "attemptedAt": "2026-10-22T22:58:01.063813+00:00"
-      },
-      "finance": {
-        "query": "theme:ECONOMY sourcecountry:AU sourcelang:English",
-        "attemptedAt": "2026-10-22T22:59:17.128432+00:00"
-      },
-      "technology": {
-        "query": "theme:TECH sourcecountry:AU sourcelang:English",
-        "attemptedAt": "2026-10-22T23:00:40.257251+00:00"
-      },
-      "marketing": {
-        "query": "(marketing OR advertising) sourcecountry:AU sourcelang:English",
-        "attemptedAt": "2026-10-22T23:02:32.750119+00:00"
-      },
-      "education": {
-        "query": "theme:EDUCATION sourcecountry:AU sourcelang:English",
-        "attemptedAt": "2026-10-22T23:03:56.391282+00:00"
-      },
-      "health": {
-        "query": "theme:MEDICAL sourcecountry:AU sourcelang:English",
-        "attemptedAt": "2026-10-22T23:05:21.135593+00:00"
-      },
-      "sports": {
-        "query": "(cricket OR football OR soccer OR tennis OR olympics) sourcecountry:AU sourcelang:English",
-        "attemptedAt": "2026-10-22T23:06:42.670571+00:00"
-      },
-      "entertainment": {
-        "query": "(film OR movie OR music OR bollywood) sourcecountry:AU sourcelang:English",
-        "attemptedAt": "2026-10-22T23:08:04.978712+00:00"
+        "attemptedAt": "2026-10-23T01:26:32.583230+00:00"
       }
     },
     "PK": {
       "top": {
         "query": "sourcecountry:PK sourcelang:English",
-        "attemptedAt": "2026-10-22T23:09:29.308929+00:00"
+        "attemptedAt": "2026-10-23T01:27:22.772547+00:00"
       },
       "finance": {
         "query": "theme:ECONOMY sourcecountry:PK sourcelang:English",
-        "attemptedAt": "2026-10-22T23:09:40.610054+00:00"
+        "attemptedAt": "2026-10-23T01:27:36.095683+00:00"
       },
       "technology": {
         "query": "theme:TECH sourcecountry:PK sourcelang:English",
-        "attemptedAt": "2026-10-22T23:11:04.262676+00:00"
+        "attemptedAt": "2026-10-23T01:28:51.948333+00:00"
       },
       "marketing": {
         "query": "(marketing OR advertising) sourcecountry:PK sourcelang:English",
-        "attemptedAt": "2026-10-22T23:12:26.639919+00:00"
+        "attemptedAt": "2026-10-23T01:30:18.349158+00:00"
       },
       "education": {
         "query": "theme:EDUCATION sourcecountry:PK sourcelang:English",
-        "attemptedAt": "2026-10-22T23:13:46.460675+00:00"
+        "attemptedAt": "2026-10-23T01:31:46.267247+00:00"
       },
       "health": {
         "query": "theme:MEDICAL sourcecountry:PK sourcelang:English",
-        "attemptedAt": "2026-10-22T23:15:04.687619+00:00"
+        "attemptedAt": "2026-10-23T01:33:10.665045+00:00"
       },
       "sports": {
         "query": "(cricket OR football OR soccer OR tennis OR olympics) sourcecountry:PK sourcelang:English",
-        "attemptedAt": "2026-10-22T23:16:30.222977+00:00"
+        "attemptedAt": "2026-10-23T01:34:34.863616+00:00"
       },
       "entertainment": {
         "query": "(film OR movie OR music OR bollywood) sourcecountry:PK sourcelang:English",
-        "attemptedAt": "2026-10-22T23:17:52.603802+00:00"
+        "attemptedAt": "2026-10-23T01:35:58.019648+00:00"
       }
     }
   }
