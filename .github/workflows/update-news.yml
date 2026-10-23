@@ -13,7 +13,7 @@ permissions:
   pages: write
 concurrency:
   group: update-news
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   update:
     runs-on: ubuntu-latest
