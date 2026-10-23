@@ -51,7 +51,7 @@ retry_queue=[]
 
 def request(query):
     global last_request
-    url='https://api.gdeltproject.org/api/v2/doc/doc'+urllib.parse.urlencode({'query':query,'mode':'artlist','maxrecords':15,'format':'json','timespan':'3d','sort':'datedesc'})
+    url='https://api.gdeltproject.org/api/v2/doc/doc?'+urllib.parse.urlencode({'query':query,'mode':'artlist','maxrecords':15,'format':'json','timespan':'3d','sort':'datedesc'})
     for attempt in range(2):
         time.sleep(max(0,6.2-(time.monotonic()-last_request)))
         last_request=time.monotonic()
