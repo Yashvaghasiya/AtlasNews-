@@ -49,6 +49,7 @@ out={'fetchedAt':None,'world':{},'countries':{},'fetchStatus':{},'queries':{}}
 last_request=0
 retry_queue=[]
 
+
 def request(query):
     global last_request
     url='https://api.gdeltproject.org/api/v2/doc/doc?'+urllib.parse.urlencode({'query':query,'mode':'artlist','maxrecords':15,'format':'json','timespan':'3d','sort':'datedesc'})
@@ -72,6 +73,7 @@ def request(query):
         try: return json.loads(text).get('articles',[]),'success'
         except ValueError: return None,'invalid_json'
     return None,'request_failed'
+
 
 for code,(name,flag) in COUNTRIES.items():
     target=out['world'] if code=='world' else {'name':name,'flag':flag}
@@ -213,6 +215,18 @@ def fallback_records(source, articles):
     return recent_records(records)[:15]
 
 
+def fallback_error_detail(text):
+    """Keep public error diagnostics short and redact both providers' keys/URLs."""
+    for config in fallback_sources.values():
+        key = config['key']
+        if key:
+            for value in (key, urllib.parse.quote(key, safe=''),
+                          urllib.parse.quote_plus(key), json.dumps(key)[1:-1]):
+                text = text.replace(value, '[REDACTED]')
+    text = re.sub(r'https?://\S+', '[URL REDACTED]', text, flags=re.IGNORECASE)
+    return ' '.join(text.split())[:200]
+
+
 def fallback_request(source, code, topic):
     global fallback_last_request
     config = fallback_sources[source]
@@ -235,6 +249,7 @@ def fallback_request(source, code, topic):
     try:
         req = urllib.request.Request(url, headers=headers)
         with urllib.request.urlopen(req, timeout=60) as response:
+            status = response.status
             text = response.read().decode('utf-8')
             # Remaining quota zero still permits consuming this last response.
             for header in ('X-RateLimit-Remaining', 'X-API-Limit-Remaining'):
@@ -244,24 +259,30 @@ def fallback_request(source, code, topic):
     except urllib.error.HTTPError as error:
         if error.code in (401, 403, 429):
             config['stopped'] = True
-        print(stamp(), source, 'http_' + str(error.code), flush=True)
+        try:
+            detail = error.read().decode('utf-8', errors='replace')
+        except Exception:
+            detail = '[response body unavailable]'
+        print(stamp(), source, 'http_' + str(error.code), fallback_error_detail(detail), flush=True)
         return []
     except Exception as error:
-        # Never print exception text, URLs containing keys, or response bodies.
+        # Never print exception text or request URLs.
         print(stamp(), source, 'request_error_' + type(error).__name__, flush=True)
         return []
     try:
         payload = json.loads(text)
     except ValueError:
+        print(stamp(), source, 'http_' + str(status), 'invalid_json', fallback_error_detail(text), flush=True)
         return []
     if not isinstance(payload, dict):
+        print(stamp(), source, 'http_' + str(status), 'invalid_response', fallback_error_detail(text), flush=True)
         return []
     if payload.get('status') != ('ok' if source == 'currents' else 'success'):
         # Providers may report quota errors in JSON rather than HTTP status.
         message = json.dumps(payload).lower()
         if any(term in message for term in ('quota', 'credit', 'rate_limit', 'ratelimit', 'rate limit', 'too many')):
             config['stopped'] = True
-        print(stamp(), source, 'api_error', flush=True)
+        print(stamp(), source, 'http_' + str(status), 'api_error', fallback_error_detail(text), flush=True)
         return []
     articles = payload.get('news' if source == 'currents' else 'results', [])
     return fallback_records(source, articles) if isinstance(articles, list) else []
