@@ -4,12 +4,170 @@
 </style></head><body><header><a class="logo" href="./" aria-label="GlobalPulse home"><span class="mark">//</span>Global<i>Pulse</i></a><div class="tag">INDEPENDENT PERSPECTIVES</div></header><div class="ticker"><span class="live"><b class="dot"></b>Updated <span id="updated">—</span></span><div class="ticker-window"><span class="crawl" id="crawl">Awaiting a successful news update</span></div></div><main><div class="eyebrow">THE WORLD. WITHOUT THE NOISE.</div><h1 class="intro">A world in<br>perspective.</h1><div class="sub">One place. Many perspectives. Explore the stories that matter.</div><hr class="rule"><nav aria-label="Topics" class="topics" id="topics"></nav><div class="controls"><nav aria-label="Countries" class="countries" id="countries"></nav><input id="search" type="search" placeholder="⌕ Search this section…" aria-label="Search headlines in this view"></div><section id="view"><div class="heading"><h2 id="title"></h2><span class="count" id="count"></span></div><div id="notice" aria-live="polite"></div><section class="grid" id="grid" aria-label="News stories"></section></section></main><footer><div class="footrow"><span>News data: <a href="https://www.gdeltproject.org/" target="_blank" rel="noopener">The GDELT Project (gdeltproject.org)</a>, <a href="https://currentsapi.services/" target="_blank" rel="noopener">Currents (currentsapi.services)</a>, <a href="https://newsdata.io/" target="_blank" rel="noopener">NewsData (newsdata.io)</a></span><span>Last fetch attempt: <time id="last">—</time></span></div><p class="fine">GlobalPulse is a working title. Headlines link directly to publishers. Source country is the publisher's country, not necessarily the location of a story. No article text or publisher images are reproduced. The update timestamp records a fetch attempt, not the age of the stories; section status and story times show availability. Topic illustrations use Unsplash photo assets under the Unsplash License; attribution: Unsplash.</p><details><summary>Data availability &amp; fetch status</summary><div id="status"></div></details></footer><script>
 const topics={top:'Top',finance:'Finance',technology:'Technology',marketing:'Marketing',education:'Education',health:'Health',sports:'Sports',entertainment:'Entertainment'};
 const countries={world:{name:'World',flag:'🌐'},IN:{name:'India',flag:'🇮🇳'},US:{name:'USA',flag:'🇺🇸'},UK:{name:'UK',flag:'🇬🇧'},CA:{name:'Canada',flag:'🇨🇦'},AU:{name:'Australia',flag:'🇦🇺'},PK:{name:'Pakistan',flag:'🇵🇰'}};
-const art={top:['photo-1451187580459-43490279c0fa','News'],finance:['photo-1611974789855-9c2a0a7236a3','$'],technology:['photo-1518770660439-4636190af475','01'],marketing:['photo-1460925895917-afdab827c52f','↗'],education:['photo-1503676260728-1c00da094a0b','Aa'],health:['photo-1505751172876-fa1923c5c528','+'],sports:['photo-1461896836934-ffe607ba8211','Go'],entertainment:['photo-1489599849927-2ee91cede3ba','Play']};
+// Generic topic illustrations only: free Unsplash photos, never publisher images.
+const art={
+  "top": {
+    "photos": [
+      "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1762838896693-c7fd24c003bc?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1444723121867-7a241cacace9?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1758967458314-4bbbb2f3152d?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1517511620798-cec17d428bc0?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1763241287143-047ab2696b1e?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1782551092106-5267488e8072?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1784550672363-24b0a8b7f5d7?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1496568816309-51d7c20e3b21?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1507752533523-5186b0bc4c43?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1531219572328-a0171b4448a3?auto=format&fit=crop&w=800&q=70"
+    ],
+    "badge": "News"
+  },
+  "finance": {
+    "photos": [
+      "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1781246435700-afec19012b45?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1579621970795-87facc2f976d?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1783542784656-834b97b3954a?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1767424412548-1a1ac7f4b9bc?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1768055105681-7d2096c5165f?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1764231467852-b609a742e082?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1506787497326-c2736dde1bef?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1511883040705-6011fad9edfc?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?auto=format&fit=crop&w=800&q=70"
+    ],
+    "badge": "$"
+  },
+  "technology": {
+    "photos": [
+      "https://images.unsplash.com/photo-1757466762489-52fea38071ad?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1644088379091-d574269d422f?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1758073519996-6d3c63b4922c?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1648737966636-2fc3a5fffc8a?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1772550018808-ebbcc271726c?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1786785712665-bb11ca2f0117?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1568952433726-3896e3881c65?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1761857352384-aaae23a714a4?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?auto=format&fit=crop&w=800&q=70"
+    ],
+    "badge": "01"
+  },
+  "marketing": {
+    "photos": [
+      "https://images.unsplash.com/photo-1556742504-16b083241fab?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1758873272540-439a105db676?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1758691736980-c619fa4203bb?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1587614313085-5da51cebd8ac?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1758873272414-c0bf30332738?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1533750349088-cd871a92f312?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1758691736843-90f58dce465e?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1562577308-9e66f0c65ce5?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1608222351212-18fe0ec7b13b?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1517816428104-797678c7cf0c?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=70"
+    ],
+    "badge": "↗"
+  },
+  "education": {
+    "photos": [
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1758270705031-ebd46917a454?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1758270704587-43339a801396?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1758270704262-ecc82b23dc37?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1773332598289-ed0444ad1d6f?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1758270704247-632bd4f7301e?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=800&q=70"
+    ],
+    "badge": "Aa"
+  },
+  "health": {
+    "photos": [
+      "https://images.unsplash.com/photo-1477332552946-cfb384aeaf1c?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1773332611528-566f16120979?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1535914254981-b5012eebbd15?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1787240663846-598e1033a919?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1761839256547-0a1cd11b6dfb?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1779525822749-151a21364350?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1758691461990-03b49d969495?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1607962837359-5e7e89f86776?auto=format&fit=crop&w=800&q=70"
+    ],
+    "badge": "+"
+  },
+  "sports": {
+    "photos": [
+      "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1762644085617-39aa30dd9c52?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1762013315117-1c8005ad2b41?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1545151414-8a948e1ea54f?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1565992441121-4367c2967103?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1786860373815-496ea42e0d0a?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1759674861540-afed9f86f94a?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1628779238951-be2c9f2a59f4?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1778273441231-bdb564373038?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1549896869-ca27eeffe4fb?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=70"
+    ],
+    "badge": "Go"
+  },
+  "entertainment": {
+    "photos": [
+      "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1579539760267-b2e78d9d735e?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1768054190173-0ae32692f5a3?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1603190287605-e6ade32fa852?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1761727799924-ec68d218df5e?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1768054183832-8b2307d994ab?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1717295248230-93ea71f48f92?auto=format&fit=crop&w=800&q=70",
+      "https://images.unsplash.com/photo-1585699324551-f6c309eedeca?auto=format&fit=crop&w=800&q=70"
+    ],
+    "badge": "Play"
+  }
+};
+function imageIndex(url,size){let hash=2166136261;for(let i=0;i<url.length;i++){hash^=url.charCodeAt(i);hash=Math.imul(hash,16777619)}return(hash>>>0)%size}
 let data={},topic='top',country='world';const $=x=>document.getElementById(x);const el=(tag,cls,text)=>{let n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n};
 function dateOf(s){if(/^\d{8}T\d{6}Z$/.test(s||''))s=s.slice(0,4)+'-'+s.slice(4,6)+'-'+s.slice(6,8)+'T'+s.slice(9,11)+':'+s.slice(11,13)+':'+s.slice(13,15)+'Z';return new Date(s)}
 function relative(s){let d=dateOf(s);if(!s||isNaN(d))return 'time unavailable';let n=Math.max(0,(Date.now()-d)/1000);return n<60?'just now':n<3600?Math.floor(n/60)+'m ago':n<86400?Math.floor(n/3600)+'h ago':Math.floor(n/86400)+'d ago'}
 function bucket(c){return c==='world'?data.world:data.countries?.[c]}
-function render(fade=false){document.querySelectorAll('.chip').forEach(b=>{let active=b.dataset.kind==='topic'?b.dataset.key===topic:b.dataset.key===country;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});let all=bucket(country)?.[topic]||[],q=$('search').value.toLowerCase();let list=all.filter(x=>String(x.title).toLowerCase().includes(q));$('title').textContent=topics[topic]+' · '+countries[country].name+' '+countries[country].flag;$('count').textContent=list.length+' STORIES';$('grid').replaceChildren();list.forEach((x,i)=>{let u;try{u=new URL(x.url);if(!['https:','http:'].includes(u.protocol))return}catch{return}let a=el('a','card');a.href=u.href;a.target='_blank';a.rel='noopener';a.style.animationDelay=(i*40)+'ms';let [photo,badge]=art[topic]||art.top;let thumb=el('div','thumb'),fallback=el('span','fallback',badge),img=document.createElement('img');img.src='https://images.unsplash.com/'+photo+'?auto=format&fit=crop&w=960&q=78';img.alt='';img.loading=i<3?'eager':'lazy';img.decoding='async';img.onerror=()=>{img.remove();thumb.append(fallback)};thumb.append(img);let body=el('div','cardbody');body.append(el('span','topic-label',topics[topic]),el('h3','',x.title),el('span','meta',(x.source||u.hostname)+' · '+relative(x.seendate)));a.append(thumb,body);$('grid').append(a)});if(!$('grid').children.length)$('grid').append(el('div','empty',q?'No headlines match this search':'No stories in this section yet'));$('notice').replaceChildren();let status=data.fetchStatus?.[country]?.[topic]||'not fetched';if(status!=='success')$('notice').append(el('div','notice','Fetch status: '+status+'. Empty sections do not mean no news exists.'));if(all.length&&all.every(x=>Date.now()-dateOf(x.seendate)>7*86400000))$('notice').append(el('div','notice','These source records are older than seven days; they are not current breaking news.'));$('status').textContent=Object.entries(countries).map(([c,v])=>v.name+': '+Object.keys(topics).map(t=>topics[t]+' '+(bucket(c)?.[t]?.length||0)+' ['+(data.fetchStatus?.[c]?.[t]||'not fetched')+']').join(' · ')).join('\n\n');if(fade){$('view').classList.remove('view-fade');void $('view').offsetWidth;$('view').classList.add('view-fade')}}
+function render(fade=false){document.querySelectorAll('.chip').forEach(b=>{let active=b.dataset.kind==='topic'?b.dataset.key===topic:b.dataset.key===country;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});let all=bucket(country)?.[topic]||[],q=$('search').value.toLowerCase();let list=all.filter(x=>String(x.title).toLowerCase().includes(q));$('title').textContent=topics[topic]+' · '+countries[country].name+' '+countries[country].flag;$('count').textContent=list.length+' STORIES';$('grid').replaceChildren();list.forEach((x,i)=>{let u;try{u=new URL(x.url);if(!['https:','http:'].includes(u.protocol))return}catch{return}let a=el('a','card');a.href=u.href;a.target='_blank';a.rel='noopener';a.style.animationDelay=(i*40)+'ms';let pool=art[topic]||art.top;let photo=pool.photos[imageIndex(u.href,pool.photos.length)],badge=pool.badge;let thumb=el('div','thumb'),fallback=el('span','fallback',badge),img=document.createElement('img');img.src=photo;img.alt='';img.loading=i<3?'eager':'lazy';img.decoding='async';img.onerror=()=>{img.remove();thumb.append(fallback)};thumb.append(img);let body=el('div','cardbody');body.append(el('span','topic-label',topics[topic]),el('h3','',x.title),el('span','meta',(x.source||u.hostname)+' · '+relative(x.seendate)));a.append(thumb,body);$('grid').append(a)});if(!$('grid').children.length)$('grid').append(el('div','empty',q?'No headlines match this search':'No stories in this section yet'));$('notice').replaceChildren();let status=data.fetchStatus?.[country]?.[topic]||'not fetched';if(status!=='success')$('notice').append(el('div','notice','Fetch status: '+status+'. Empty sections do not mean no news exists.'));if(all.length&&all.every(x=>Date.now()-dateOf(x.seendate)>7*86400000))$('notice').append(el('div','notice','These source records are older than seven days; they are not current breaking news.'));$('status').textContent=Object.entries(countries).map(([c,v])=>v.name+': '+Object.keys(topics).map(t=>topics[t]+' '+(bucket(c)?.[t]?.length||0)+' ['+(data.fetchStatus?.[c]?.[t]||'not fetched')+']').join(' · ')).join('\n\n');if(fade){$('view').classList.remove('view-fade');void $('view').offsetWidth;$('view').classList.add('view-fade')}}
 function buttons(){for(const [kind,items] of [['topic',topics],['country',countries]]){for(const [k,v] of Object.entries(items)){let b=el('button','chip '+kind,kind==='topic'?v:v.flag+' '+v.name);b.dataset.kind=kind;b.dataset.key=k;b.onclick=()=>{if(kind==='topic')topic=k;else country=k;render(true)};$(kind==='topic'?'topics':'countries').append(b)}}$('search').oninput=()=>render()}
 async function init(){buttons();try{let r=await fetch(new URL('data.json',document.baseURI),{cache:'no-store'});if(!r.ok)throw Error('data.json HTTP '+r.status);data=await r.json();let d=new Date(data.fetchedAt);if(!isNaN(d)){$('updated').textContent=d.toLocaleTimeString('en',{hour:'2-digit',minute:'2-digit',timeZone:'UTC'})+' UTC';$('last').textContent=d.toUTCString();$('last').dateTime=d.toISOString()}let headlines=(data.world?.top||[]).map(x=>x.title);let fallbackSection=Object.keys(topics).find(t=>(data.world?.[t]||[]).length);if(!headlines.length&&fallbackSection)topic=fallbackSection;let text=headlines.length?headlines.join(' • '):fallbackSection?'World headlines unavailable; showing '+topics[fallbackSection]+' stories instead':'No stories available yet • No fabricated headlines';$('crawl').textContent=text+' • '+text+' • '}catch(e){data={world:{},countries:{},fetchStatus:{world:{top:'data file unavailable'}}};$('crawl').textContent='News feed unavailable • Please try again later'}render()}init();
 </script></body></html>
