@@ -169,80 +169,105 @@ function dateOf(s){if(/^\d{8}T\d{6}Z$/.test(s||''))s=s.slice(0,4)+'-'+s.slice(4,
 function relative(s){let d=dateOf(s);if(!s||isNaN(d))return 'time unavailable';let n=Math.max(0,(Date.now()-d)/1000);return n<60?'just now':n<3600?Math.floor(n/60)+'m ago':n<86400?Math.floor(n/3600)+'h ago':Math.floor(n/86400)+'d ago'}
 function bucket(c){return c==='world'?data.world:data.countries?.[c]}
 // Reload-safe SPA routes keep GitHub Pages on the existing root document.
+let savedView=false,savedStories=[],storageError='';
+const savedKey='atlasnews.saved.v1';
+function loadBookmarks(){
+ try{
+  const items=JSON.parse(localStorage.getItem(savedKey)||'[]'),seen=new Set();
+  savedStories=Array.isArray(items)?items.filter(x=>x&&typeof x.title==='string'&&storyURL(x.url)).map(x=>({title:x.title,source:typeof x.source==='string'?x.source:new URL(x.url).hostname,seendate:typeof x.seendate==='string'?x.seendate:'',url:storyURL(x.url)})).filter(x=>{if(seen.has(x.url))return false;seen.add(x.url);return true}):[];
+  storageError='';
+ }catch{savedStories=[];storageError='Saved stories are unavailable on this device. Allow browser storage to use bookmarks.'}
+}
+function toggleBookmark(x){
+ const url=storyURL(x.url),exists=savedStories.some(s=>s.url===url);
+ const next=exists?savedStories.filter(s=>s.url!==url):[{title:x.title,source:x.source||new URL(url).hostname,seendate:x.seendate||'',url},...savedStories];
+ try{localStorage.setItem(savedKey,JSON.stringify(next));savedStories=next;storageError=''}catch{storageError='Could not save this change. Browser storage may be disabled or full.'}
+ render();
+}
 function readRoute(){
-  topic='top';country='world';
-  const route=new URLSearchParams(location.search).get('route')||'';
-  const parts=route.split('/').filter(Boolean);
-  if(parts[0]==='topic'&&parts.length===2&&Object.hasOwn(topics,parts[1]))topic=parts[1];
-  else if(parts[0]==='country'&&parts.length===3&&parts[1]!=='world'&&Object.hasOwn(countries,parts[1])&&Object.hasOwn(topics,parts[2])){country=parts[1];topic=parts[2]}
+ topic='top';country='world';savedView=false;
+ const route=new URLSearchParams(location.search).get('route')||'';
+ const parts=route.split('/').filter(Boolean);
+ if(route==='/saved')savedView=true;
+ else if(parts[0]==='topic'&&parts.length===2&&Object.hasOwn(topics,parts[1]))topic=parts[1];
+ else if(parts[0]==='country'&&parts.length===3&&parts[1]!=='world'&&Object.hasOwn(countries,parts[1])&&Object.hasOwn(topics,parts[2])){country=parts[1];topic=parts[2]}
 }
 function navigate(){
-  const url=new URL(location.href);url.search='';url.hash='';
-  url.searchParams.set('route',country==='world'?'/topic/'+topic:'/country/'+country+'/'+topic);
-  history.pushState(null,'',url);$('search').value='';render(true);
+ const url=new URL(location.href);url.search='';url.hash='';
+ url.searchParams.set('route',savedView?'/saved':country==='world'?'/topic/'+topic:'/country/'+country+'/'+topic);
+ history.pushState(null,'',url);$('search').value='';render(true);
 }
 function storyURL(value){try{const url=new URL(value);return ['https:','http:'].includes(url.protocol)?url.href:null}catch{return null}}
 function updateSeo(list){
-  const name=topics[topic],place=countries[country].name;
-  document.title=country==='world'?name+' - World News - AtlasNews':name+' · '+place+' - AtlasNews';
-  document.querySelector('meta[name="description"]').content='Latest '+name+' news '+(country==='world'?'from around the world':'for '+place)+' - headlines from global sources, updated continuously';
-  document.querySelectorAll('script[type="application/ld+json"]').forEach(node=>node.remove());
-  const schema=document.createElement('script');schema.type='application/ld+json';schema.id='story-list-schema';
-  schema.textContent=JSON.stringify({'@context':'https://schema.org','@type':'ItemList',itemListElement:list.map((x,i)=>({'@type':'ListItem',position:i+1,name:x.title,url:storyURL(x.url)}))});
-  document.head.append(schema);
+ const name=topics[topic],place=countries[country].name;
+ document.title=savedView?'Saved - AtlasNews':country==='world'?name+' - World News - AtlasNews':name+' · '+place+' - AtlasNews';
+ document.querySelector('meta[name="description"]').content=savedView?'Saved headlines on this device - AtlasNews':'Latest '+name+' news '+(country==='world'?'from around the world':'for '+place)+' - headlines from global sources, updated continuously';
+ document.querySelectorAll('script[type="application/ld+json"]').forEach(node=>node.remove());
+ const schema=document.createElement('script');schema.type='application/ld+json';schema.id='story-list-schema';
+ schema.textContent=JSON.stringify({'@context':'https://schema.org','@type':'ItemList',itemListElement:list.map((x,i)=>({'@type':'ListItem',position:i+1,name:x.title,url:storyURL(x.url)}))});
+ document.head.append(schema);
 }
 function actionIcon(path){
-  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('aria-hidden','true');svg.setAttribute('focusable','false');
-  const shape=document.createElementNS(svg.namespaceURI,'path');shape.setAttribute('d',path);svg.append(shape);return svg;
+ const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('aria-hidden','true');svg.setAttribute('focusable','false');
+ const shape=document.createElementNS(svg.namespaceURI,'path');shape.setAttribute('d',path);svg.append(shape);return svg;
 }
 function render(fade=false){
-  document.querySelectorAll('.chip').forEach(b=>{const active=b.dataset.kind==='topic'?b.dataset.key===topic:b.dataset.key===country;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});
-  const all=bucket(country)?.[topic]||[],q=$('search').value.toLowerCase();
-  const list=all.filter(x=>storyURL(x.url)&&String(x.title).toLowerCase().includes(q));
-  $('title').textContent=topics[topic]+' · '+countries[country].name+' '+countries[country].flag;
-  $('count').textContent=list.length+' STORIES';$('grid').replaceChildren();
-  list.forEach((x,i)=>{
-    const u=new URL(storyURL(x.url)),card=el('article','card'),a=el('a','story-link');
-    a.href=u.href;a.target='_blank';a.rel='noopener';card.style.animationDelay=(i*40)+'ms';
-    const pool=art[topic]||art.top,photo=pool.photos[imageIndex(u.href,pool.photos.length)];
-    const thumb=el('div','thumb'),fallback=el('span','fallback',pool.badge),img=document.createElement('img');
-    img.loading='lazy';img.decoding='async';img.src=photo;img.alt='';
-    img.onerror=()=>{img.remove();thumb.append(fallback)};thumb.append(img);
-    const body=el('div','cardbody');body.append(el('span','topic-label',topics[topic]),el('h3','',x.title),el('span','meta',(x.source||u.hostname)+' · '+relative(x.seendate)));
-    a.append(thumb,body);
-    const actions=el('div','card-actions'),share=el('a','card-action');
-    share.href='https://wa.me/?text='+encodeURIComponent(x.title+String.fromCharCode(10)+u.href);share.target='_blank';share.rel='noopener';
-    share.setAttribute('aria-label','Share on WhatsApp: '+x.title);share.title='Share on WhatsApp';
-    share.append(actionIcon('M20.5 11.6a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.4-4.8A8.5 8.5 0 1 1 20.5 11.6Z M8.2 7.5c.4-.3.9-.2 1.1.3l.8 1.8c.1.3 0 .5-.4.9l-.4.4c.7 1.4 1.8 2.5 3.3 3.2l.7-.9c.2-.3.5-.4.8-.2l1.9.9c.4.2.5.5.3.9-.4 1.1-1.2 1.6-2.3 1.4-3.8-.6-6.7-3.5-7.2-6.6-.2-.9.2-1.6 1.4-2.1Z'));
-    actions.append(share);card.append(a,actions);$('grid').append(card);
-  });
-  if(!list.length)$('grid').append(el('div','empty',q?'No headlines match this search':'No stories in this section yet'));
-  updateSeo(list);$('notice').replaceChildren();
+ document.querySelectorAll('.chip').forEach(b=>{const active=b.dataset.kind==='saved'?savedView:!savedView&&(b.dataset.kind==='topic'?b.dataset.key===topic:b.dataset.key===country);b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});
+ const all=savedView?savedStories:bucket(country)?.[topic]||[],q=$('search').value.toLowerCase();
+ const list=all.filter(x=>storyURL(x.url)&&String(x.title).toLowerCase().includes(q));
+ $('title').textContent=savedView?'Saved':topics[topic]+' · '+countries[country].name+' '+countries[country].flag;
+ $('count').textContent=list.length+' STORIES';$('grid').replaceChildren();
+ list.forEach((x,i)=>{
+  const u=new URL(storyURL(x.url)),card=el('article','card'),a=el('a','story-link');
+  a.href=u.href;a.target='_blank';a.rel='noopener';card.style.animationDelay=(i*40)+'ms';
+  const pool=savedView?art.top:art[topic]||art.top,photo=pool.photos[imageIndex(u.href,pool.photos.length)];
+  const thumb=el('div','thumb'),fallback=el('span','fallback',pool.badge),img=document.createElement('img');
+  img.loading='lazy';img.decoding='async';img.src=photo;img.alt='';
+  img.onerror=()=>{img.remove();thumb.append(fallback)};thumb.append(img);
+  const body=el('div','cardbody');body.append(el('span','topic-label',savedView?'Saved':topics[topic]),el('h3','',x.title),el('span','meta',(x.source||u.hostname)+' · '+relative(x.seendate)));
+  a.append(thumb,body);
+  const actions=el('div','card-actions'),share=el('a','card-action');
+  share.href='https://wa.me/?text='+encodeURIComponent(x.title+String.fromCharCode(10)+u.href);share.target='_blank';share.rel='noopener';
+  share.setAttribute('aria-label','Share on WhatsApp: '+x.title);share.title='Share on WhatsApp';
+  share.append(actionIcon('M20.5 11.6a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.4-4.8A8.5 8.5 0 1 1 20.5 11.6Z M8.2 7.5c.4-.3.9-.2 1.1.3l.8 1.8c.1.3 0 .5-.4.9l-.4.4c.7 1.4 1.8 2.5 3.3 3.2l.7-.9c.2-.3.5-.4.8-.2l1.9.9c.4.2.5.5.3.9-.4 1.1-1.2 1.6-2.3 1.4-3.8-.6-6.7-3.5-7.2-6.6-.2-.9.2-1.6 1.4-2.1Z'));
+  const bookmark=el('button','card-action'),isSaved=savedStories.some(s=>s.url===u.href);
+  bookmark.type='button';bookmark.setAttribute('aria-pressed',String(isSaved));
+  bookmark.title=isSaved?'Remove saved story':'Save story';bookmark.setAttribute('aria-label',bookmark.title+': '+x.title);
+  bookmark.append(actionIcon('M6 3h12v18l-6-4-6 4Z'));bookmark.onclick=()=>toggleBookmark(x);
+  actions.append(share,bookmark);card.append(a,actions);$('grid').append(card);
+ });
+ if(!list.length)$('grid').append(el('div','empty',q?'No headlines match this search':savedView?'No saved stories yet':'No stories in this section yet'));
+ updateSeo(list);$('notice').replaceChildren();
+ if(storageError)$('notice').append(el('div','notice',storageError));
+ if(!savedView){
   const status=data.fetchStatus?.[country]?.[topic]||'not fetched';
   if(status!=='success')$('notice').append(el('div','notice','Fetch status: '+status+'. Empty sections do not mean no news exists.'));
   if(all.length&&all.every(x=>Date.now()-dateOf(x.seendate)>7*86400000))$('notice').append(el('div','notice','These source records are older than seven days; they are not current breaking news.'));
-  $('status').textContent=Object.entries(countries).map(([c,v])=>v.name+': '+Object.keys(topics).map(t=>topics[t]+' '+(bucket(c)?.[t]?.length||0)+' ['+(data.fetchStatus?.[c]?.[t]||'not fetched')+']').join(' · ')).join(String.fromCharCode(10,10));
-  if(fade){$('view').classList.remove('view-fade');void $('view').offsetWidth;$('view').classList.add('view-fade')}
+ }
+ $('status').textContent=Object.entries(countries).map(([c,v])=>v.name+': '+Object.keys(topics).map(t=>topics[t]+' '+(bucket(c)?.[t]?.length||0)+' ['+(data.fetchStatus?.[c]?.[t]||'not fetched')+']').join(' · ')).join(String.fromCharCode(10,10));
+ if(fade){$('view').classList.remove('view-fade');void $('view').offsetWidth;$('view').classList.add('view-fade')}
 }
 function buttons(){
-  for(const [kind,items] of [['topic',topics],['country',countries]])for(const [k,v] of Object.entries(items)){
-    const b=el('button','chip '+kind,kind==='topic'?v:v.flag+' '+v.name);b.type='button';b.dataset.kind=kind;b.dataset.key=k;
-    b.onclick=()=>{if(kind==='topic')topic=k;else country=k;navigate()};$(kind==='topic'?'topics':'countries').append(b);
-  }
-  $('search').oninput=()=>render();
-  window.addEventListener('popstate',()=>{readRoute();$('search').value='';render(true)});
+ for(const [kind,items] of [['topic',topics],['country',countries]])for(const [k,v] of Object.entries(items)){
+  const b=el('button','chip '+kind,kind==='topic'?v:v.flag+' '+v.name);b.type='button';b.dataset.kind=kind;b.dataset.key=k;
+  b.onclick=()=>{savedView=false;if(kind==='topic')topic=k;else country=k;navigate()};$(kind==='topic'?'topics':'countries').append(b);
+ }
+ const saved=el('button','chip topic','Saved');saved.type='button';saved.dataset.kind='saved';saved.onclick=()=>{savedView=true;navigate()};$('topics').append(saved);
+ $('search').oninput=()=>render();
+ window.addEventListener('popstate',()=>{readRoute();$('search').value='';render(true)});
+ window.addEventListener('storage',e=>{if(e.key===savedKey||e.key===null){loadBookmarks();render()}});
 }
 async function init(){
-  readRoute();buttons();render();
-  try{
-    const r=await fetch(new URL('data.json',document.baseURI),{cache:'no-store'});if(!r.ok)throw Error('data.json HTTP '+r.status);data=await r.json();
-    const d=new Date(data.fetchedAt);if(!isNaN(d)){$('updated').textContent=d.toLocaleTimeString('en',{hour:'2-digit',minute:'2-digit',timeZone:'UTC'})+' UTC';$('last').textContent=d.toUTCString();$('last').dateTime=d.toISOString()}
-    const headlines=(data.world?.top||[]).map(x=>x.title),fallbackSection=Object.keys(topics).find(t=>(data.world?.[t]||[]).length);
-    if(!headlines.length&&fallbackSection&&!new URLSearchParams(location.search).has('route'))topic=fallbackSection;
-    const text=headlines.length?headlines.join(' • '):fallbackSection?'World headlines unavailable; showing '+topics[fallbackSection]+' stories instead':'No stories available yet • No fabricated headlines';
-    $('crawl').textContent=text+' • '+text+' • ';
-  }catch(e){data={world:{},countries:{},fetchStatus:{world:{top:'data file unavailable'}}};$('crawl').textContent='News feed unavailable • Please try again later'}
-  render();
+ loadBookmarks();readRoute();buttons();render();
+ try{
+  const r=await fetch(new URL('data.json',document.baseURI),{cache:'no-store'});if(!r.ok)throw Error('data.json HTTP '+r.status);data=await r.json();
+  const d=new Date(data.fetchedAt);if(!isNaN(d)){$('updated').textContent=d.toLocaleTimeString('en',{hour:'2-digit',minute:'2-digit',timeZone:'UTC'})+' UTC';$('last').textContent=d.toUTCString();$('last').dateTime=d.toISOString()}
+  const headlines=(data.world?.top||[]).map(x=>x.title),fallbackSection=Object.keys(topics).find(t=>(data.world?.[t]||[]).length);
+  if(!headlines.length&&fallbackSection&&!new URLSearchParams(location.search).has('route'))topic=fallbackSection;
+  const text=headlines.length?headlines.join(' • '):fallbackSection?'World headlines unavailable; showing '+topics[fallbackSection]+' stories instead':'No stories available yet • No fabricated headlines';
+  $('crawl').textContent=text+' • '+text+' • ';
+ }catch(e){data={world:{},countries:{},fetchStatus:{world:{top:'data file unavailable'}}};$('crawl').textContent='News feed unavailable • Please try again later'}
+ render();
 }
 init();
 </script></body></html>
