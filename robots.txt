@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yashvaghasiya.github.io/AtlasNews-/sitemap.xml
