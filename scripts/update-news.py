@@ -6,6 +6,14 @@ from pathlib import Path
 TOPICS = {'top':'', 'finance':'theme:ECONOMY', 'technology':'theme:TECH', 'marketing':'(marketing OR advertising)', 'education':'theme:EDUCATION', 'health':'theme:MEDICAL', 'sports':'(cricket OR football OR soccer OR tennis OR olympics)', 'entertainment':'(film OR movie OR music OR bollywood)'}
 COUNTRIES = {'world':('World','🌐'), 'IN':('India','🇮🇳'), 'US':('USA','🇺🇸'), 'UK':('UK','🇬🇧'), 'CA':('Canada','🇨🇦'), 'AU':('Australia','🇦🇺'), 'PK':('Pakistan','🇵🇰')}
 EXPECTED = {'IN':{'India'},'US':{'United States','United States of America'},'UK':{'United Kingdom'},'CA':{'Canada'},'AU':{'Australia'},'PK':{'Pakistan'}}
+# Only Top sections passed conservative coverage review; no speculative topic calls.
+LANGUAGES = {'hi':'Hindi', 'gu':'Gujarati', 'mr':'Marathi', 'pa':'Punjabi', 'ur':'Urdu'}
+# Hindi first; the five new feeds add only five primary requests per run.
+COUNTRIES = {**{'IN_'+lang:('India','🇮🇳') for lang in LANGUAGES}, **COUNTRIES}
+def base_country(code): return code.split('_', 1)[0]
+def language_code(code): return code.split('_', 1)[1] if '_' in code else 'en'
+def language_name(code): return LANGUAGES.get(language_code(code), 'English')
+def section_topics(code): return {'top':''} if '_' in code else TOPICS
 path=Path('data.json')
 try: previous=json.loads(path.read_text())
 except (OSError, ValueError): previous={}
@@ -27,14 +35,14 @@ def recent_records(records):
 def prune_records(data):
     for code in COUNTRIES:
         bucket=data.get('world',{}) if code=='world' else data.get('countries',{}).get(code,{})
-        for topic in TOPICS:
+        for topic in section_topics(code):
             if topic in bucket: bucket[topic]=recent_records(bucket[topic])
 # A no-network maintenance mode removes unmistakably non-English legacy titles.
 if '--validate-only' in sys.argv:
     removed=0
     for code in COUNTRIES:
         bucket=previous.get('world',{}) if code=='world' else previous.get('countries',{}).get(code,{})
-        for topic in TOPICS:
+        for topic in section_topics(code):
             old=bucket.get(topic,[])
             bucket[topic]=[a for a in recent_records(old) if title_ok(a.get('title',''))]
             if len(old)!=len(bucket[topic]):
@@ -81,15 +89,15 @@ for code,(name,flag) in COUNTRIES.items():
     out['fetchStatus'][code]={}; out['queries'][code]={}
     old=previous.get('world',{}) if code=='world' else previous.get('countries',{}).get(code,{})
     skip=False
-    for topic,term in TOPICS.items():
+    for topic,term in section_topics(code).items():
         if skip:
             target[topic]=[]; out['fetchStatus'][code][topic]='skipped_country_code_mismatch'; continue
-        query=' '.join(x for x in [term,('sourcecountry:'+code if code!='world' else ''),'sourcelang:English'] if x)
+        query=' '.join(x for x in [term,('sourcecountry:'+('india' if '_' in code else code) if code!='world' else ''),'sourcelang:'+language_name(code)] if x)
         out['queries'][code][topic]={'query':query,'attemptedAt':stamp()}
         articles,status=request(query)
-        if articles and code!='world' and any(a.get('sourcecountry') not in EXPECTED[code] for a in articles):
+        if articles and code!='world' and any(a.get('sourcecountry') not in EXPECTED[base_country(code)] for a in articles):
             articles=[]; status='skipped_country_code_mismatch'; skip=True
-            for key in TOPICS: target[key]=[]
+            for key in section_topics(code): target[key]=[]
         if articles is None:
             target[topic]=[a for a in recent_records(old.get(topic,[])) if title_ok(a.get('title',''))]
             if status=='rate_limited_after_retry': retry_queue.append((code,topic,query,old,target))
@@ -100,7 +108,7 @@ for code,(name,flag) in COUNTRIES.items():
             for a in articles:
                 url=a.get('url','')
                 if not url.startswith(('https://','http://')) or not a.get('title'): continue
-                if a.get('language','').lower()!='english' or not title_ok(a['title']):
+                if a.get('language','').lower()!=language_name(code).lower() or not title_ok(a['title']):
                     rejected+=1; continue
                 raw=a.get('seendate','')
                 try: seen=datetime.strptime(raw,'%Y%m%dT%H%M%SZ').replace(tzinfo=timezone.utc).isoformat()
@@ -121,9 +129,9 @@ for code,topic,query,old,target in retry_queue:
     if code in retry_skipped or any(s=='skipped_country_code_mismatch' for s in out['fetchStatus'][code].values()): continue
     out['queries'][code][topic]['attemptedAt']=stamp()
     articles,status=request(query)
-    if articles and code!='world' and any(a.get('sourcecountry') not in EXPECTED[code] for a in articles):
+    if articles and code!='world' and any(a.get('sourcecountry') not in EXPECTED[base_country(code)] for a in articles):
         articles=[]; status='skipped_country_code_mismatch'; retry_skipped.add(code)
-        for key in TOPICS: target[key]=[]
+        for key in section_topics(code): target[key]=[]
     if articles is None:
         target[topic]=[a for a in recent_records(old.get(topic,[])) if title_ok(a.get('title',''))]
         if target[topic]: status+='; retained_previous_records'
@@ -133,7 +141,7 @@ for code,topic,query,old,target in retry_queue:
         for a in articles:
             url=a.get('url','')
             if not url.startswith(('https://','http://')) or not a.get('title'): continue
-            if a.get('language','').lower()!='english' or not title_ok(a['title']):
+            if a.get('language','').lower()!=language_name(code).lower() or not title_ok(a['title']):
                 rejected+=1; continue
             raw=a.get('seendate','')
             try: seen=datetime.strptime(raw,'%Y%m%dT%H%M%SZ').replace(tzinfo=timezone.utc).isoformat()
@@ -179,7 +187,7 @@ fallback_sources = {
 fallback_last_request = 0.0
 
 
-def fallback_records(source, articles):
+def fallback_records(source, articles, code):
     """Normalize provider timestamps to the same UTC ISO seendate GDELT stores."""
     records = []
     for article in articles:
@@ -192,7 +200,7 @@ def fallback_records(source, articles):
             continue
         if not isinstance(url, str) or not url.startswith(('https://', 'http://')):
             continue
-        if language not in ('en', 'english'):
+        if language not in (language_code(code), language_name(code).lower()):
             continue
         raw = article.get('published' if source == 'currents' else 'pubDate')
         if not isinstance(raw, str):
@@ -233,9 +241,12 @@ def fallback_request(source, code, topic):
     category = FALLBACK_CATEGORIES[source].get(topic)
     if not config['key'] or config['stopped'] or config['used'] >= config['limit'] or not category:
         return []
-    params = {'language': 'en', 'category': category}
+    # Currents only documents hi/ur among these Indian language codes.
+    if source == 'currents' and language_code(code) not in ('en', 'hi', 'ur'):
+        return []
+    params = {'language': language_code(code), 'category': category}
     if code != 'world':
-        params['country'] = FALLBACK_COUNTRIES[code]
+        params['country'] = FALLBACK_COUNTRIES[base_country(code)]
     if source == 'currents':
         params['page_size'] = 15
     # NewsData defaults to ten articles/one credit on Free; never paginate.
@@ -285,12 +296,12 @@ def fallback_request(source, code, topic):
         print(stamp(), source, 'http_' + str(status), 'api_error', fallback_error_detail(text), flush=True)
         return []
     articles = payload.get('news' if source == 'currents' else 'results', [])
-    return fallback_records(source, articles) if isinstance(articles, list) else []
+    return fallback_records(source, articles, code) if isinstance(articles, list) else []
 
 
 for code in COUNTRIES:
     target = out['world'] if code == 'world' else out['countries'][code]
-    for topic in TOPICS:
+    for topic in section_topics(code):
         status = out['fetchStatus'][code][topic]
         if recent_records(target.get(topic, [])) and status.split(';', 1)[0] != 'rate_limited_after_retry':
             continue
