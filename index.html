@@ -281,6 +281,113 @@ updateSeo=list=>{englishSeo(list);document.documentElement.lang=savedView?'en':l
 render=(fade=false)=>{englishRender(fade);document.querySelectorAll('[data-kind="language"]').forEach(b=>{const active=b.dataset.key===lang;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});document.querySelectorAll('[data-kind="topic"]').forEach(b=>{b.hidden=lang!=='en'&&b.dataset.key!=='top'});document.querySelectorAll('.card h3').forEach(h=>{h.dir='auto';if(!savedView)h.lang=lang});if(!savedView&&lang!=='en'){$('title').textContent+=' · '+languages[lang];[...$('notice').children].filter(n=>n.textContent.startsWith('Fetch status:')).forEach(n=>n.remove());const status=data.fetchStatus?.[feedCode()]?.[topic]||'not fetched';$('notice').prepend(el('div','notice','India Top in '+languages[lang]+'. Other topics are available in English.'));if(status!=='success')$('notice').append(el('div','notice','Fetch status: '+status+'. Language feeds may be awaiting their first update; no English stories are substituted.'))}};
 buttons=()=>{englishButtons();const india=document.querySelector('[data-kind="country"][data-key="IN"]');$('countries').prepend(india);const row=el('nav','countries languages');row.id='languages';row.setAttribute('aria-label','News language');row.style.cssText='margin:18px 0;gap:10px';for(const [code,name] of Object.entries(languages)){const b=el('button','chip language',name);b.type='button';b.dataset.kind='language';b.dataset.key=code;b.lang=code;b.onclick=()=>{lang=code;savedView=false;if(code!=='en'){country='IN';topic='top'}navigate()};row.append(b)}$('topics').after(row);const style=el('style');style.textContent='.languages .chip{background:#111113;border:1px solid #1F1F22;border-radius:12px;color:#F5F5F7;transition:background 300ms,border-color 300ms,color 300ms}.languages .chip.active{background:#FF3B30;border-color:#FF3B30;color:#0A0A0B}.chip[hidden]{display:none}.card h3{font-family:Inter,Arial,system-ui,sans-serif}';document.head.append(style)};
 init=async()=>{loadBookmarks();readRoute();buttons();render();try{const r=await fetch(new URL('data.json',document.baseURI),{cache:'no-store'});if(!r.ok)throw Error('data.json HTTP '+r.status);data=await r.json();const d=new Date(data.fetchedAt);if(!isNaN(d)){$('updated').textContent=d.toLocaleTimeString('en',{hour:'2-digit',minute:'2-digit',timeZone:'UTC'})+' UTC';$('last').textContent=d.toUTCString();$('last').dateTime=d.toISOString()}const headlines=(data.countries?.IN?.top||[]).map(x=>x.title);const text=headlines.length?headlines.join(' • '):'India headlines awaiting update • No fabricated headlines';$('crawl').textContent=text+' • '+text+' • '}catch(e){data={world:{},countries:{},fetchStatus:{}};$('crawl').textContent='News feed unavailable • Please try again later'}render()};
+// Visitor-aware landing defaults. Explicit links and manual choices always win.
+// Providers checked 2026-10-28: freeipapi.com/rate-limit and ipwhois.io/documentation.
+// Both allow keyless HTTPS browser requests and commercial use. No accounts/keys.
+const preferenceKey='atlasnews.preference.v1',geoCacheKey='atlasnews.geo.v1';
+const geoTTL=24*60*60*1000,geoTimeout=4000;
+// Easy-to-edit India state/region table. Names and ISO state-code aliases map to
+// existing Top feeds only; unlisted regions remain English. IP location is approximate.
+const indiaRegionLanguages={
+ gujarat:'gu',gj:'gu',
+ maharashtra:'mr',mh:'mr',
+ punjab:'pa',pb:'pa',
+ 'uttar pradesh':'hi',up:'hi',bihar:'hi',br:'hi',
+ 'madhya pradesh':'hi',mp:'hi',rajasthan:'hi',rj:'hi',
+ delhi:'hi','new delhi':'hi','nct of delhi':'hi','nct delhi':'hi',
+ 'national capital territory of delhi':'hi',dl:'hi',
+ haryana:'hi',hr:'hi','himachal pradesh':'hi',hp:'hi',
+ uttarakhand:'hi',uttaranchal:'hi',ut:'hi',uk:'hi',
+ jharkhand:'hi',jh:'hi',chhattisgarh:'hi',chattisgarh:'hi',ct:'hi',cg:'hi'
+};
+const normalizeRegion=value=>String(value||'').trim().toLowerCase().replace(/^in[-_]/,'').replace(/[._-]+/g,' ').replace(/\s+/g,' ');
+function visitorDefault(value){
+ if(!value||value.error||value.success===false)return null;
+ let cc=String(value.countryCode||value.country_code||'').trim().toUpperCase();
+ if(!/^[A-Z]{2}$/.test(cc))return null;
+ if(cc==='GB')cc='UK'; // APIs use ISO GB; the existing site route is UK.
+ const place=Object.hasOwn(countries,cc)?cc:'world';
+ const languageFor=key=>Object.hasOwn(indiaRegionLanguages,key)?indiaRegionLanguages[key]:null;
+ const region=normalizeRegion(value.regionName||value.region),code=normalizeRegion(value.regionCode||value.region_code);
+ return {country:place,topic:'top',lang:place==='IN'?(languageFor(region)||languageFor(code)||'en'):'en'};
+}
+function validPreference(value){
+ return !!value&&Object.hasOwn(countries,value.country)&&Object.hasOwn(topics,value.topic)&&Object.hasOwn(languages,value.lang)&&
+  (value.lang==='en'||(value.country==='IN'&&value.topic==='top'));
+}
+function readLocal(key){try{return JSON.parse(localStorage.getItem(key)||'null')}catch{return null}}
+function writeLocal(key,value){try{localStorage.setItem(key,JSON.stringify(value))}catch{/* Storage denied/full must not break news or the current choice. */}}
+function readPreference(){const value=readLocal(preferenceKey);return validPreference(value)?{country:value.country,topic:value.topic,lang:value.lang}:null}
+function readGeoCache(){
+ const value=readLocal(geoCacheKey),now=Date.now();
+ return value&&validPreference({...value,topic:'top'})&&Number.isFinite(value.expiresAt)&&value.expiresAt>now&&value.expiresAt<=now+geoTTL?
+  {country:value.country,topic:'top',lang:value.lang}:null;
+}
+function explicitLandingLink(){const p=new URLSearchParams(location.search);return p.has('route')||p.has('lang')}
+function replaceLandingRoute(){
+ const url=new URL(location.href);url.searchParams.set('route',country==='world'?'/topic/'+topic:'/country/'+country+'/'+topic);
+ url.searchParams.delete('lang');if(lang!=='en')url.searchParams.set('lang',lang);
+ history.replaceState(null,'',url);
+}
+let geoCancelled=false,activeGeoController=null;
+function cancelGeo(){geoCancelled=true;activeGeoController?.abort()}
+const geoProviders=['https://free.freeipapi.com/api/v1/json','https://ipwho.is/'];
+async function fetchGeoDefault(url,fetcher=fetch){
+ const controller=new AbortController();activeGeoController=controller;let timer;
+ try{
+  // Timeout covers BOTH response headers and JSON parsing, including a stalled body.
+  return await Promise.race([
+   (async()=>{const response=await fetcher(url,{signal:controller.signal,mode:'cors',credentials:'omit',referrerPolicy:'no-referrer',cache:'no-store'});
+    if(!response.ok)throw Error('Geo unavailable');
+    const result=visitorDefault(await response.json());if(!result)throw Error('Invalid geo response');return result})(),
+   new Promise((_,reject)=>{timer=setTimeout(()=>{controller.abort();reject(Error('Geo timeout'))},geoTimeout)})
+  ]);
+ }finally{clearTimeout(timer);controller.abort();if(activeGeoController===controller)activeGeoController=null}
+}
+async function lookupVisitorDefault(fetcher=fetch){
+ for(const url of geoProviders){
+  if(geoCancelled||readPreference())return null;
+  try{return await fetchGeoDefault(url,fetcher)}catch{/* Try one independent backup, then leave India Top usable. */}
+ }
+ return null;
+}
+function applyVisitorDefault(value){
+ if(!value||geoCancelled||readPreference())return;
+ // Cache ONLY a derived route/language + expiry, never IP, state, city or coordinates.
+ writeLocal(geoCacheKey,{country:value.country,lang:value.lang,expiresAt:Date.now()+geoTTL});
+ const changed=country!==value.country||topic!==value.topic||lang!==value.lang||savedView;
+ country=value.country;topic=value.topic;lang=value.lang;savedView=false;replaceLandingRoute();
+ if(changed)render(true); // Reuse the existing view transition; never block the feed.
+}
+const landingReadRoute=readRoute,landingButtons=buttons,landingInit=init;
+readRoute=()=>{
+ landingReadRoute();
+ if(!explicitLandingLink()){
+  const preferred=readPreference()||readGeoCache();
+  if(preferred){country=preferred.country;topic=preferred.topic;lang=preferred.lang;savedView=false;replaceLandingRoute()}
+ }
+};
+buttons=()=>{
+ landingButtons();
+ document.querySelectorAll('.chip').forEach(button=>{
+  const action=button.onclick;
+  button.onclick=()=>{
+   cancelGeo();action();
+   if(['country','topic','language'].includes(button.dataset.kind))writeLocal(preferenceKey,{country,topic,lang});
+  };
+ });
+ // Searching/back navigation must not be interrupted by a late geo response.
+ $('search').addEventListener('input',cancelGeo);
+ window.addEventListener('popstate',cancelGeo);
+ window.addEventListener('storage',event=>{if(event.key===preferenceKey&&readPreference())cancelGeo()});
+};
+init=()=>{
+ const detect=!explicitLandingLink()&&!readPreference()&&!readGeoCache();
+ const ready=landingInit(); // Immediate shell + data.json fetch, independent of geolocation.
+ if(detect)void lookupVisitorDefault().then(applyVisitorDefault).catch(()=>{});
+ return ready;
+};
+
 init();
 </script></body></html>
 
